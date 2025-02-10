@@ -1,0 +1,8 @@
+membre static:
+	membre d'une classe non lié a la classe
+		-> peut acceder aux elements statiques de la fonction
+		-> n'a pas depointeur sur l'objet = pas de this
+		-> independant de la classe = peut etre appele sans insatance de la classe
+		-> dans ce cas permet avec les variables statics d'avoir un "manager" de la classe
+
+super interessant à decouvrir

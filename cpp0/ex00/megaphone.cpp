@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 14:17:32 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/08 14:52:17 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/09 12:23:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -21,7 +20,7 @@ int main(int argc, char *argv[])
     i = 1;
     if (argc < 2)
     {
-        cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
         return (0);
     }
     while (argv[i])
@@ -32,8 +31,8 @@ int main(int argc, char *argv[])
             argv[i][j] = toupper(argv[i][j]);
             j++;
         }
-        cout << argv[i++] << ' ';
+        std::cout << argv[i++] << ' ';
     }
-    cout << endl;
+    std::cout << std::endl;
     return (0);
 }

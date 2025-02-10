@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+         #
+#    By: tzizi <tzizi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/08 14:53:30 by tzizi             #+#    #+#              #
-#    Updated: 2025/02/08 14:57:00 by tzizi            ###   ########.fr        #
+#    Created: 2025/02/08 14:46:53 by tzizi             #+#    #+#              #
+#    Updated: 2025/02/09 14:12:19 by tzizi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
 CPP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = phonebook.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp
 
-OBJS = ${SRC:.c=.o}
+OBJS = ${SRC:.cpp=.o}
 
 all: ${NAME}
 

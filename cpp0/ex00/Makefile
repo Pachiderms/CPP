@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/08 14:46:53 by tzizi             #+#    #+#              #
-#    Updated: 2025/02/08 14:50:48 by tzizi            ###   ########.fr        #
+#    Updated: 2025/02/10 16:50:42 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = megaphone.cpp
 
-OBJS = ${SRC:.c=.o}
+OBJS = ${SRC:.cpp=.o}
 
 all: ${NAME}
 
