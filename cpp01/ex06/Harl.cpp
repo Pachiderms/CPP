@@ -6,7 +6,7 @@
 /*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:43:14 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/11 15:39:05 by pachiderms       ###   ########.fr       */
+/*   Updated: 2025/02/11 15:55:34 by pachiderms       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,26 @@ Harl::Harl(){
 
 void Harl::complain(std::string level){
     std::string match[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    for (int i = 0; i < 4; i++){
-        if (match[i] == level)
+    bool found = false;
+    int i =0;
+    for (i; i < 4; i++){
+        if (match[i] == level){
+            found = true;
+            break ;
+        }
+    }
+    switch (found)
+    {
+    case  true:
+        while (i < 4)
+        {
             (this->*harlPtr[i])();
+            i++;
+        }
+        break;
+    default:
+        std::cout << "[  Probably complaining about insignificant problems ]" << std::endl;
+        break;
     }
     return ;
 }
