@@ -3,34 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 12:36:14 by marvin            #+#    #+#             */
-/*   Updated: 2025/02/11 12:36:14 by marvin           ###   ########.fr       */
+/*   Created: 2025/02/11 12:36:14 by tzizi            #+#    #+#             */
+/*   Updated: 2025/02/11 12:36:14 by tzizi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-
-std::string Replace(std::ifstream file, std::string s1, std::string s2)
-{
-    std::string line;
-    std::string res;
-    while (getline(file, line))
-    {
-        int i = 0;
-        while (line[i]){
-            if (!line.compare(i, s2.size(), s1))
-            {
-                line.replace(i, s2.size(), s2);
-            }
-            i++;
-        }
-        res += line;
-    }
-    return res;
-}
 
 int main(int argc, char *argv[])
 {
