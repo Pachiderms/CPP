@@ -16,16 +16,17 @@
 
 int main()
 {
-    Weapon riffle = Weapon();
+    Weapon riffle = Weapon("riffle");
     Weapon batarang = Weapon();
-    riffle.setType("riffle");
 
-    HumanA carlos = HumanA("Carlos", riffle);
+    HumanA carlos("Carlos", riffle);
+    carlos.attack();
+    riffle.setType("tacos");
+    carlos.attack();
 
-    HumanB batman = HumanB("Batman");
+    HumanB batman("Batman");
     batman.setWeapon(batarang);
     batman.attack();
-    carlos.attack();
     batarang.setType("batarang");
     batman.attack();
 

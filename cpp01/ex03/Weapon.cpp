@@ -16,6 +16,10 @@ Weapon::Weapon() : type("gun"){
 
 }
 
+Weapon::Weapon(std::string _type) : type(_type){
+
+}
+
 const std::string Weapon::getType(){
     return this->type;
 }
