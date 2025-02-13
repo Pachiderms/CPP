@@ -13,8 +13,9 @@
 #include "Zombie.hpp"
 
 Zombie* newZombie(std::string name){
+    std::cout << "newZombie fun" << std::endl;
     Zombie* zombie = new Zombie(name);
 
-    zombie->Brainz();
+    zombie->announce();
     return (zombie);
 }

@@ -13,7 +13,8 @@
 #include "Zombie.hpp"
 
 void randomChump(std::string name){
+    std::cout << "randomChump fun" << std::endl;
     Zombie zombie(name);
-    zombie.Brainz();
+    zombie.announce();
     return ;
 }
