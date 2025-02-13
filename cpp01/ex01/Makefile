@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = zombieHorde
 
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98

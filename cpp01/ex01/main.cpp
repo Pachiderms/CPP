@@ -12,19 +12,15 @@
 
 #include "Zombie.hpp"
 
-void    test(Zombie z){
-    z.Brainz();
-    return ;
-}
-
-int main(){
-
+int main()
+{
     int N = 5;
     Zombie* zh = zombieHorde(N, "Carlos");
 
-    test(zh[2]);
+    std::cout << "first zombie ptr " << &zh[0] << std::endl;
+
     for(int i=0; i < N; i++){
-        zh[i].Brainz();
+        zh[i].announce();
     }
 
     delete [] zh;

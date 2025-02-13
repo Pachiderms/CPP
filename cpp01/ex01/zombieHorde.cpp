@@ -14,6 +14,7 @@
 
 Zombie* zombieHorde(int N, std::string name){
     Zombie* zombieHorde = new Zombie[N];
+    std::cout << "zombie Horde ptr " << zombieHorde << std::endl;
     for (int i=0; i < N; i++){
         zombieHorde[i].SetName(name);
     }

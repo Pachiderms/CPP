@@ -13,7 +13,7 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie() : name("zombie"){
-
+    std::cout << "Zombie: " << this->name << " spawned." << std::endl;
 }
 
 Zombie::Zombie(std::string _name) : name(_name){
