@@ -10,7 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include <iomanip>
+#include <iostream>
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 int main(void)
 {

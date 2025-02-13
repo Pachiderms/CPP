@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 14:17:32 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/09 12:23:04 by tzizi           ###   ########.fr       */
+/*   Updated: 2025/02/13 09:07:01 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int main(int argc, char *argv[])
         }
         std::cout << argv[i++] << ' ';
     }
-    std::cout << std::endl;
+    std::cout << '\n';
     return (0);
 }
