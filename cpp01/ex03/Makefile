@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = americans
+NAME = gotham
 
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98

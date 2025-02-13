@@ -16,15 +16,11 @@ int main(int argc, char *argv[])
 {
     Harl harl;
 
-    if (argc < 2)
+    if (argc != 2)
     {
-        std::cout << "You seem to be in a good mood" << std::endl;
+        std::cout << "[ Nothing interesting to say. ]" << std::endl;
         return 0;
     }
-    for (int i=1; i < argc; i++)
-    {
-        harl.complain(argv[i]);
-        std::cout << std::endl;
-    }
+    harl.complain(argv[1]);
     return 0;
 }
