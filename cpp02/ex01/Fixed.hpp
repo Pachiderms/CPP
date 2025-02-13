@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:14:49 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/13 10:48:08 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/13 11:06:21 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -22,6 +23,8 @@ private:
     static const int nb_fbits;
 public:
     Fixed();
+    Fixed(const int i);
+    Fixed(const float p_nb);
     Fixed(const Fixed &other);
     Fixed& operator=(const Fixed &other);
     ~Fixed();

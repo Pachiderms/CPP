@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:14:45 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/13 10:48:39 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/13 12:13:25 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ const int Fixed::nb_fbits = 8;
 
 Fixed::Fixed() : fp_val(0){
     std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int i) : fp_val(i){
+}
+
+Fixed::Fixed(const float p_nb) : fp_val(0){
+
 }
 
 Fixed::Fixed(const Fixed &other) : fp_val(other.fp_val){
@@ -34,8 +41,27 @@ int Fixed::getRawBits()const{
     return fp_val;
 }
 
+int pow(int i, int p)
+{
+    if (p == 0)
+        return 1;
+    else if (p == 1)
+        return i;
+    int base = i;
+    while (p > 1)
+    {
+        i *= base;
+        p--;
+    }
+    return i;
+}
+
 void Fixed::setRawBits(int const raw){
-    this->fp_val = raw;
+    int res;
+
+    std::cout << raw << std::endl;
+    
+    return ;
 }
 
 Fixed::~Fixed(){
