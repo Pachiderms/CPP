@@ -30,6 +30,10 @@ public:
     ~Fixed();
     int getRawBits() const;
     void setRawBits(int const raw);
+    float toFloat()const;
+    int toInt()const;
 };
+
+std::ostream&operator<<(std::ostream &other, Fixed const &fixed);
 
 #endif

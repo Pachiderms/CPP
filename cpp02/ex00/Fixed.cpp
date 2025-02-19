@@ -24,14 +24,14 @@ Fixed::Fixed(const Fixed &other) : fp_val(other.fp_val){
 
 Fixed& Fixed::operator=(const Fixed& fixed){
     std::cout << "Copy assignment operator called" << std::endl;
-    if (this->fp_val != fixed.fp_val)
-        this->fp_val = fixed.fp_val;
+    if (this != &fixed)
+        this->fp_val = fixed.getRawBits();
     return *this;
 }
 
 int Fixed::getRawBits()const{
     std::cout << "getRawBits member function called" << std::endl;
-    return fp_val;
+    return this->fp_val;
 }
 
 void Fixed::setRawBits(int const raw){
