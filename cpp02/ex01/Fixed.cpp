@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:14:45 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/13 12:13:25 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/20 11:55:01 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ Fixed& Fixed::operator=(const Fixed& fixed){
 }
 
 int Fixed::getRawBits()const{
-    std::cout << "getRawBits member function called" << std::endl;
     return this->fp_val;
 }
 

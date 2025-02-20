@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:14:49 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/13 10:48:08 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/20 11:53:06 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
     Fixed(const Fixed &other);
     Fixed& operator=(const Fixed &other);
     ~Fixed();
+
     int getRawBits() const;
     void setRawBits(int const raw);
 };
