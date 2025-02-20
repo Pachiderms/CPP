@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:26:29 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/19 16:44:49 by pachiderms       ###   ########.fr       */
+/*   Updated: 2025/02/20 13:20:05 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,29 @@ Point& Point::operator=(const Point &other){
     return *this;
 }
 
-int Point::InRect(Point const a, Point const b, Point const point)const{
-    Fixed max_x = Fixed::max(a.x, b.x);
-    Fixed max_y = Fixed::max(a.y, b.y);
-    Fixed min_x = Fixed::max(a.x, b.x);
-    Fixed min_y = Fixed::max(a.y, b.y);
-
-    if (max_x < point.x)
-        return 1;
-    else if (max_y < point.y)
-        return 2;
-    else if (min_x > point.x) 
-        return -1;
-    else if (min_y > point.y)
-        return -2;
-    return 0;
+float Point::area(Point const a, Point const b, Point const c){
+    float area = (a.x.toFloat() * (b.y.toFloat() - c.y.toFloat())
+        + b.x.toFloat() * (c.y.toFloat() - a.y.toFloat())
+        + c.x.toFloat() * (a.y.toFloat() - b.y.toFloat())) / 2;
+    
+    if (area < 0)
+        area *= -1;
+    return area;
 }
+    
 
-bool bsp( Point const a, Point const b, Point const c, Point const point){
+bool Point::bsp( Point const a, Point const b, Point const c, Point const point){
+    
+    float total_a = Point::area(a, b, c);
+    float a1 = Point::area(point, a, b);
+    float a2 = Point::area(point, b, c);
+    float a3 = Point::area(point, a, c);
 
-
-    return false;
+    // std::cout << a1 << " " << a2 << " " << a3 << std::endl;
+    // std::cout << a1 + a2 + a3 << std::endl;
+    // std::cout << total_a << std::endl;
+ 
+    if (a1 == 0 || a2 == 0 || a3 == 0)
+        return false;
+    return (a1 + a2 + a3 == total_a);
 }

@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+         #
+#    By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/08 14:46:53 by tzizi             #+#    #+#              #
-#    Updated: 2025/02/19 15:12:49 by pachiderms       ###   ########.fr        #
+#    Updated: 2025/02/20 12:43:10 by tzizi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = point
 
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp
 OBJS = ${SRC:.cpp=.o}
 
 all: ${NAME}
