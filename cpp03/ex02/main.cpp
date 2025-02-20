@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/13 13:57:03 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/20 13:58:26 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 int main()
 {
-    ClapTrap carlos("Carlos");
-    ScavTrap bigCarlos("CarlosEvolution");
-    FragTrap bigbigCarlos("GloriousEvoltion");
+    ClapTrap carlos("Clap");
+    ScavTrap bigCarlos("Scav");
+    FragTrap bigbigCarlos("Frag");
 
     carlos.attack("random");
     carlos.beRepaired(1);

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 13:12:20 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 13:35:01 by tzizi            ###   ########.fr       */
+/*   Created: 2025/02/20 13:33:55 by tzizi             #+#    #+#             */
+/*   Updated: 2025/02/20 14:15:28 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
     private:
         std::string Name;
@@ -23,14 +24,15 @@ class FragTrap : public ClapTrap
         int energyPoints;
         int attackDamage;
     public:
-        FragTrap();
-        FragTrap(std::string name);
-        FragTrap(const FragTrap &other);
-        FragTrap& operator=(const FragTrap &trap);
-        ~FragTrap();
+        DiamondTrap();
+        DiamondTrap(std::string name);
+        DiamondTrap(const DiamondTrap &other);
+        DiamondTrap& operator=(const DiamondTrap &trap);
+        ~DiamondTrap();
         void attack(const std::string &target);
         void guardGate();
         void highFivesGuy();
+        void whoAmI();
 };
 
 #endif

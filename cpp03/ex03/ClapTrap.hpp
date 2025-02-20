@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 13:12:20 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 13:35:01 by tzizi            ###   ########.fr       */
+/*   Created: 2025/02/13 12:36:19 by tzizi             #+#    #+#             */
+/*   Updated: 2025/02/13 13:16:42 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class FragTrap : public ClapTrap
+class ClapTrap
 {
-    private:
+    protected:
         std::string Name;
         int hitPoints;
         int energyPoints;
         int attackDamage;
     public:
-        FragTrap();
-        FragTrap(std::string name);
-        FragTrap(const FragTrap &other);
-        FragTrap& operator=(const FragTrap &trap);
-        ~FragTrap();
+        ClapTrap();
+        ClapTrap(std::string name);
+        ClapTrap(const ClapTrap &other);
+        ClapTrap& operator=(const ClapTrap &trap);
+        ~ClapTrap();
         void attack(const std::string &target);
-        void guardGate();
-        void highFivesGuy();
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
 };
 
 #endif

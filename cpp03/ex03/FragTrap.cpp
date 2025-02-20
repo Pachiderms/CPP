@@ -6,13 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 13:49:31 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/13 14:02:32 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : hitPoints(100),
+FragTrap::FragTrap() : Name("TrapEvolution"), hitPoints(100),
     energyPoints(100), attackDamage(30){
     std::cout << "New default FragTrap" << std::endl;
 }

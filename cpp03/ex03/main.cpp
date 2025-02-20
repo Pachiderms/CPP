@@ -6,46 +6,22 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 13:58:38 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/20 14:05:13 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <iostream>
 
 int main()
 {
     ClapTrap carlos("Clap");
     ScavTrap bigCarlos("Scav");
-
-    carlos.attack("random");
-    carlos.beRepaired(1);
-    carlos.attack("random");
-    carlos.attack("random");
-    carlos.beRepaired(1);
-    carlos.attack("random");
-    carlos.attack("random");
-    carlos.beRepaired(1);
-    carlos.attack("random");
-    carlos.attack("random");
-    //10 actions
-    carlos.beRepaired(1);
-    carlos.attack("random");
-
-    bigCarlos.attack("random");
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
-    bigCarlos.attack("random");
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
-    bigCarlos.attack("random");
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
-    bigCarlos.attack("random");
-    //10 actions
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
+    FragTrap bigbigCarlos("Frag");
+    DiamondTrap diamond("Diamond");
 
     return 0;
 }
