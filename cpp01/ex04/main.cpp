@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     std::string s1 = argv[2];
     std::string s2 = argv[3];
 
-    std::ifstream file;
+    std::ifstream file; //read open mod
     file.open(file_name);
     if (!file.is_open())
     {
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    std::ofstream replaceFile;
+    std::ofstream replaceFile; // write open mod
     replaceFile.open(file_name + ".replace");
     if (!replaceFile.is_open())
     {
@@ -58,7 +58,9 @@ int main(int argc, char *argv[])
         }
         replaceFile << tmp << '\n';
     }
+
     file.close();
     replaceFile.close();
+
     return 0;
 }
