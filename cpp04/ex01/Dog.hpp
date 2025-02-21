@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:05 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 16:28:52 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/21 09:49:53 by pachiderms       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Dog : public Animal
 {
     private:
         std::string name;
-        Brain *brain;
+        Brain* brain;
     public:
         Dog();
         Dog(std::string _name);

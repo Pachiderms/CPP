@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 16:53:22 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/21 10:09:32 by pachiderms       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,27 @@
 
 int main()
 {
-    int n = 10;
-    const Animal *animals = new Animal[n];
-    for (int i=0; i < n; i++){
-        if (i < n / 2)
-            animals[i] = new Dog();
-        else
-            animals[i] = new Cat();
-    }
-    for (int i=0; i < n; i++){
-        delete animals[i];
-    }
+    // int n = 10;
+    // const Animal *animals[n];
+    // for (int i=0; i < n; i++){
+    //     if (i < n / 2)
+    //         animals[i] = new Dog();
+    //     else
+    //         animals[i] = new Cat();
+    // }
+    // for (int i=0; i < n; i++){
+    //     animals[i]->makeSound();
+    // }
+    // for (int i=0; i < n; i++){
+    //     delete animals[i];
+    // }
 
+    //leaks comes from dog's and cat's brains
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+
+    delete j;//should not create a leak
+    delete i;
+    
     return 0;
 }

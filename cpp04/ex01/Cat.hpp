@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:59 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 16:27:36 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/21 09:49:43 by pachiderms       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Cat : public Animal
 {
     private:
         std::string name;
-        Brain *brain;
+        Brain* brain;
     public:
         Cat();
         Cat(std::string _name);
