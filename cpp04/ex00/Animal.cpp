@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:54 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 16:05:51 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/22 20:18:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ Animal::Animal():type("Capibara"){
     std::cout << "Animal Default Constructor Called" << std::endl;
 }
 
-Animal::Animal(const Animal &other):type(other.type){
-    this->SetPointers();
+Animal::Animal(const Animal &other){
+    *this = other;
     std::cout << "Animal Copy Constructor Called" << std::endl;
 }
 

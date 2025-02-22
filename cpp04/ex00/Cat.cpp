@@ -3,27 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/21 09:53:44 by pachiderms       ###   ########.fr       */
+/*   Updated: 2025/02/22 20:18:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat():name("cat"){
+Cat::Cat(){
     this->type = "Cat";
     std::cout << "Cat Default Constructor Called" << std::endl;
 }
 
-Cat::Cat(std::string _name):name(_name){
-    this->type = "Cat";
-    std::cout << "Cat String Constructor Called" << std::endl;
-}
-
 Cat::Cat(const Cat &other){
-    this->type = other.getType();
+    *this = other;
     std::cout << "Cat Copy Constructor Called" << std::endl;
 }
 

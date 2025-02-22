@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 16:14:08 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/22 20:23:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ int main()
     k->makeSound(); //will output the cat sound!
     smurf->makeSound();
 
+    const Animal* dogCopy = j;
+    const Animal* catCopy(i);
+
+    dogCopy->makeSound();
+    catCopy->makeSound();
+    
+    
     delete j;
     delete i;
     delete meta;

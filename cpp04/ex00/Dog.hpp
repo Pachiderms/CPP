@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:05 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 15:26:27 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/22 20:17:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@
 
 class Dog : public Animal
 {
-    private:
-        std::string name;
     public:
         Dog();
-        Dog(std::string _name);
         Dog(const Dog &other);
-        Dog& operator=(const Dog &Dog);
+        Dog& operator=(const Dog &dog);
         ~Dog();
 };
 

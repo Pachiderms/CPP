@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:05:58 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 16:15:09 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/22 20:17:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ WrongAnimal::WrongAnimal():type("WrongCapibara"){
     std::cout << "WrongAnimal Default Constructor Called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &other):type(other.type){
-    this->SetPointers();
+WrongAnimal::WrongAnimal(const WrongAnimal &other){
+    *this = other;
     std::cout << "WrongAnimal Copy Constructor Called" << std::endl;
 }
 
-WrongAnimal& WrongAnimal::operator=(const WrongAnimal &WrongAnimal){
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &wrongAnimal){
     std::cout << "WrongAnimal Copy  Assignement Constructor Called" << std::endl;
     
-    if (this != &WrongAnimal)
-        this->type = WrongAnimal.type;
+    if (this != &wrongAnimal)
+        this->type = wrongAnimal.type;
 
     return *this;
 }

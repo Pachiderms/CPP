@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:49:27 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 16:07:36 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/22 20:17:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class WrongAnimal
     public:
         WrongAnimal();
         WrongAnimal(const WrongAnimal &other);
-        WrongAnimal& operator=(const WrongAnimal &animal);
+        WrongAnimal& operator=(const WrongAnimal &wrongAnimal);
         ~WrongAnimal();
 
         std::string getType()const;

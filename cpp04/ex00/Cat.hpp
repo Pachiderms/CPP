@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:59 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 15:28:15 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/02/22 20:18:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@
 
 class Cat : public Animal
 {
-    private:
-        std::string name;
     public:
         Cat();
-        Cat(std::string _name);
         Cat(const Cat &other);
-        Cat& operator=(const Cat &Cat);
+        Cat& operator=(const Cat &cat);
         ~Cat();
 };
 
