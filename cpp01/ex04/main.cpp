@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
     std::string line;
     std::string tmp;
-    while (getline(file, line))
+    while (getline(file, line, '\0'))
     {
         int i = 0;
         tmp = "";
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
                 i++;
             }
         }
-        replaceFile << tmp << '\n';
+        replaceFile << tmp;
     }
 
     file.close();
