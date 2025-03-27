@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <iostream>
 
 int main(int argc, char *argv[])
 {
     Harl harl;
 
+    harl.complain("NOTHING");
+    std::cout << "NOTHING result" << std::endl;
     harl.complain("DEBUG");
     harl.complain("WARNING");
     harl.complain("ERROR");

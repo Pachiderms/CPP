@@ -11,22 +11,20 @@
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <iostream>
-#include <string>
 
 int main(){
 
     Zombie carlos = Zombie("Carlos");
     
     carlos.announce();
-    randomChump("Stack");
+    randomChump("Max");
 
-    Zombie* heap = newZombie("Heap");
+    Zombie* carlton = newZombie("Carlton");
 
     std::cout << "back to main" << std::endl;
     carlos.announce();
-    heap->announce();
+    carlton->announce();
 
-    delete heap;
+    delete carlton;
     return 0;
 }

@@ -13,18 +13,17 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-#include <iostream>
 
 int main()
 {
-    Weapon tacos = Weapon("tacos");
+    Weapon riffle = Weapon("riffle");
 
-    HumanA carlos("Carlos", tacos);
+    HumanA carlos("Carlos", riffle);
     carlos.attack();
-    tacos.setType("minigun");
+    riffle.setType("tacos");
     carlos.attack();
 
-    Weapon batarang = Weapon("gun");
+    Weapon batarang = Weapon();
     HumanB batman("Batman");
     batman.setWeapon(batarang);
     batman.attack();

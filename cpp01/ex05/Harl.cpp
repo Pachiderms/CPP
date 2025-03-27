@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:43:14 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/11 15:39:05 by pachiderms       ###   ########.fr       */
+/*   Updated: 2025/03/27 16:52:35 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void Harl::complain(std::string level){
     std::string match[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     for (int i = 0; i < 4; i++){
         if (match[i] == level)
+        {
             (this->*harlPtr[i])();
+            break;
+        }
     }
     return ;
 }
