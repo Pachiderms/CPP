@@ -18,13 +18,13 @@
 int main()
 {
     Weapon tacos = Weapon("tacos");
-    Weapon batarang = Weapon();
 
     HumanA carlos("Carlos", tacos);
     carlos.attack();
     tacos.setType("minigun");
     carlos.attack();
 
+    Weapon batarang = Weapon("gun");
     HumanB batman("Batman");
     batman.setWeapon(batarang);
     batman.attack();
