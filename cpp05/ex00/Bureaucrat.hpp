@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Bureaucrat_HPP
-#define Bureaucrat_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 
@@ -23,8 +23,8 @@ private:
 public:
     Bureaucrat();
     Bureaucrat(const std::string _name, int _grade);
-    Bureaucrat(const Bureaucrat &other);
-    Bureaucrat& operator=(const Bureaucrat &other);
+    Bureaucrat(const Bureaucrat & other);
+    Bureaucrat& operator=(const Bureaucrat & buro);
     ~Bureaucrat();
 
     class GradeTooHighException : public std::exception
@@ -43,8 +43,12 @@ public:
             }
     };
 
-    int getGrade();
+    void gradePlus(int plus);
+    void gradeMinus(int minus);
+    int getGrade() const;
     const std::string getName() const;
 };
+
+std::ostream& operator<<(std::ostream & o, const Bureaucrat & buro);
 
 #endif

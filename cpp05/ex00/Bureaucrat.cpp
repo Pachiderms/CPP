@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
     std::cout << "Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string const _name, int _grade){
+Bureaucrat::Bureaucrat(std::string const _name, int _grade): name(_name){
     std::cout << "Parameter constructor called" << std::endl;
     try{
         if (_grade > 150)
@@ -40,16 +40,45 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& buro){
     return *this;
 }
 
+void Bureaucrat::gradePlus(int plus){
+    try{
+        if (grade - plus < 0)
+            throw GradeTooHighException();
+        else
+            grade -= plus;
+    }
+    catch (std::exception & e){
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    return ;
+}
+
+void Bureaucrat::gradeMinus(int minus){
+    try{
+        if (grade + minus > 150)
+            throw GradeTooHighException();
+        else
+        grade += minus;
+    }
+    catch (std::exception & e){
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    return ;
+}
+
 const std::string Bureaucrat::getName()const{
-    std::cout << "getName member function called" << std::endl;
     return this->name;
 }
 
-int Bureaucrat::getGrade(){
-    std::cout << "getGrade member function called" << std::endl;
+int Bureaucrat::getGrade()const{
     return this->grade;
 }
 
 Bureaucrat::~Bureaucrat(){
     std::cout << "Destructor called" << std::endl;
+}
+
+std::ostream & operator<<(std::ostream & o, const Bureaucrat& buro){
+    o << buro.getName() << ", " << "bureaucrat grade " << buro.getGrade() <<std::endl;
+    return o;
 }
