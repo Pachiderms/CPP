@@ -6,16 +6,16 @@
 #    By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/08 14:46:53 by tzizi             #+#    #+#              #
-#    Updated: 2025/02/13 10:46:57 by tzizi            ###   ########.fr        #
+#    Updated: 2025/04/03 14:36:40 by tzizi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = bureaucrat
 
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Bureaucrat.cpp
 OBJS = ${SRC:.cpp=.o}
 
 all: ${NAME}
