@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:14:49 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/19 15:17:10 by pachiderms       ###   ########.fr       */
+/*   Updated: 2025/05/15 14:45:51 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ public:
 	Fixed operator--(int);
 
     static Fixed& min(Fixed &fixed1, Fixed &fixed2);
+    static const Fixed& min(const Fixed &fixed1, const Fixed &fixed2);
     static Fixed& max(Fixed &fixed, Fixed &fixed2);
     static const Fixed& max(const Fixed &fixed, const Fixed &fixed2);
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pachiderms <pachiderms@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:14:45 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/19 15:18:14 by pachiderms       ###   ########.fr       */
+/*   Updated: 2025/05/15 15:00:29 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ Fixed::Fixed(const float p_nb) : fp_val(0){
     this->fp_val = roundf(p_nb * (1 << this->nb_fbits));
 }
 
-Fixed::Fixed(const Fixed &other) : fp_val(other.fp_val){
+Fixed::Fixed(const Fixed &other){
+    *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& fixed){
@@ -121,6 +122,12 @@ Fixed Fixed::operator--(int){
 }
 
 Fixed& Fixed::min(Fixed &fixed1, Fixed &fixed2){
+    if (fixed1.operator<(fixed2))
+        return fixed1;
+    return fixed2;
+}
+
+const Fixed& Fixed::min(const Fixed &fixed1, const Fixed &fixed2){
     if (fixed1.operator<(fixed2))
         return fixed1;
     return fixed2;

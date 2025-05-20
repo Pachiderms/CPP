@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:26:29 by pachiderms        #+#    #+#             */
-/*   Updated: 2025/02/20 13:20:05 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/05/15 15:07:10 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,4 @@ float Point::area(Point const a, Point const b, Point const c){
     if (area < 0)
         area *= -1;
     return area;
-}
-    
-
-bool Point::bsp( Point const a, Point const b, Point const c, Point const point){
-    
-    float total_a = Point::area(a, b, c);
-    float a1 = Point::area(point, a, b);
-    float a2 = Point::area(point, b, c);
-    float a3 = Point::area(point, a, c);
-
-    // std::cout << a1 << " " << a2 << " " << a3 << std::endl;
-    // std::cout << a1 + a2 + a3 << std::endl;
-    // std::cout << total_a << std::endl;
- 
-    if (a1 == 0 || a2 == 0 || a3 == 0)
-        return false;
-    return (a1 + a2 + a3 == total_a);
 }
