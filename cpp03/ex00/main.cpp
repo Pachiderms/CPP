@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/13 13:08:11 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/05/20 18:04:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main()
     carlos.attack("random");
     carlos.attack("random");
     //10 actions
+    carlos.takeDamage(2);
     carlos.beRepaired(1);
     carlos.attack("random");
 
