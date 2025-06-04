@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 13:49:31 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/04 14:51:36 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,23 @@ FragTrap::~FragTrap(){
 }
 
 void FragTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0)
-    {
-        std::cout << "Not enough energy!" << std::endl;
+    if (this->energyPoints <= 0 || this->hitPoints <= 0)
         return ;
-    }
     std::cout << "FragTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     this->energyPoints--;
     return ;
 }
 
 void FragTrap::guardGate(){
+    if (this->hitPoints <= 0)
+        return;
     std::cout << "Gate keeper mode activated!" << std::endl;
     return ;
 }
 
 void FragTrap::highFivesGuy(){
+    if (this->hitPoints <= 0)
+        return;
     std::cout << "Can I get a High Five?!" << std::endl;
     return ;
 }
