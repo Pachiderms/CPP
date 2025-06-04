@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:19 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/13 13:19:45 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/04 14:30:23 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-    protected:
+    private:
         std::string Name;
         int hitPoints;
         int energyPoints;

@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:33:58 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 14:15:34 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/04 14:52:19 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,29 @@ DiamondTrap::~DiamondTrap(){
 }
 
 void DiamondTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0)
-    {
-        std::cout << "Not enough energy!" << std::endl;
+    if (this->energyPoints <= 0 || this->hitPoints <= 0)
         return ;
-    }
     std::cout << "DiamondTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     this->energyPoints--;
     return ;
 }
 
 void DiamondTrap::guardGate(){
+    if (this->hitPoints <= 0)
+        return;
     std::cout << "Gate keeper mode activated!" << std::endl;
     return ;
 }
 
 void DiamondTrap::highFivesGuy(){
+    if (this->hitPoints <= 0)
+        return;
     std::cout << "Can I get a High Five?!" << std::endl;
     return ;
 }
 
 void DiamondTrap::whoAmI(){
+    if (this->hitPoints <= 0)
+        return;
     std::cout << this->Name << "Clap name: " << std::endl;
 }

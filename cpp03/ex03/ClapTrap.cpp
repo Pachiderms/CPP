@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/13 14:01:46 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/04 15:03:49 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,30 +37,35 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &trap){
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout << "Clap Trap " << this->Name << " destroyed" << std::endl;
+    std::cout << "Clap Trap destroyed" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0)
-    {
-        std::cout << "Not enough energy!" << std::endl;
+    if (this->energyPoints <= 0 || this->hitPoints <= 0)
         return ;
-    }
     std::cout << "ClapTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     this->energyPoints--;
     return ;
 }
+
 void ClapTrap::takeDamage(unsigned int amount){
-    std::cout << "ClapTrap " << this->Name << " takes " << amount << " points of damage!" << std::endl;
+    if (this->hitPoints <= 0)
+        return;
+    this->hitPoints -= amount;
+    std::cout << "ClapTrap " << this->Name << " takes " << amount << " points of damage and now has " << this->hitPoints << " hit points." << std::endl;
     return ;
 }
+
 void ClapTrap::beRepaired(unsigned int amount){
-    if (this->energyPoints <= 0)
+    if (this->energyPoints <= 0 || this->hitPoints <= 0)
+        return ;
+    if (this->hitPoints >= 10)
     {
-        std::cout << "Not enough energy!" << std::endl;
+        std::cout << "ClapTrap " << this->Name << " has nothing to repair." << std::endl;
         return ;
     }
-    std::cout << "ClapTrap " << this->Name << " recovered " << amount << " hit points." << std::endl;
+    this->hitPoints++;
+    std::cout << "ClapTrap " << this->Name << " recovered " << amount << " hit points and now has " << this->hitPoints << "." << std::endl;
     this->energyPoints--;
     return ;
 }

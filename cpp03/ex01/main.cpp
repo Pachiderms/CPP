@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 13:58:38 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/04 15:13:03 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main()
     carlos.attack("random");
     carlos.attack("random");
     carlos.beRepaired(1);
+    carlos.takeDamage(10);
     carlos.attack("random");
     carlos.attack("random");
     carlos.beRepaired(1);

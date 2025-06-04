@@ -6,13 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/13 14:02:32 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/04 15:00:18 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : Name("TrapEvolution"), hitPoints(100),
+FragTrap::FragTrap() : hitPoints(100),
     energyPoints(100), attackDamage(30){
     std::cout << "New default FragTrap" << std::endl;
 }
@@ -41,22 +41,23 @@ FragTrap::~FragTrap(){
 }
 
 void FragTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0)
-    {
-        std::cout << "Not enough energy!" << std::endl;
+    if (this->energyPoints <= 0 || this->hitPoints <= 0)
         return ;
-    }
     std::cout << "FragTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     this->energyPoints--;
     return ;
 }
 
 void FragTrap::guardGate(){
+    if (this->hitPoints <= 0)
+        return;
     std::cout << "Gate keeper mode activated!" << std::endl;
     return ;
 }
 
 void FragTrap::highFivesGuy(){
+    if (this->hitPoints <= 0)
+        return;
     std::cout << "Can I get a High Five?!" << std::endl;
     return ;
 }
