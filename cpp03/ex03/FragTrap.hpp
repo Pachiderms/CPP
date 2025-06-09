@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:12:20 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 13:42:01 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/09 15:52:47 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+//virtual key word to avoid ambiguity when multiple inheritance
+//the class that will inherit from multiple classes that inherites ClapTrap
+//will have the same virtual ClapTrap copy and share data from it
+class FragTrap : virtual public ClapTrap
 {
     public:
         FragTrap();

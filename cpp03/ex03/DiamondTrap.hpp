@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:33:55 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 13:33:07 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/09 15:53:34 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ class DiamondTrap : public FragTrap, public ScavTrap
         void guardGate();
         void highFivesGuy();
         void whoAmI();
+
+        //Debug functions
+        int getEnergyAmount();
+        int getHitPoints();
+        int getAttack();
 };
 
 #endif
