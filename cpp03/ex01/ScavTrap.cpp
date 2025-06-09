@@ -3,34 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/04 14:50:30 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/09 13:31:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : Name("TrapEvolution"), hitPoints(100),
-    energyPoints(50), attackDamage(20){
+ScavTrap::ScavTrap() : ClapTrap(){
+    this->hitPoints = 100;
+    this->maxHitPoints = 100;
+    this->energyPoints = 50;
+    this->attackDamage = 20;
     std::cout << "New default ScavTrap" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name):Name(name), hitPoints(100),
-    energyPoints(50), attackDamage(20){
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
+    this->Name = name;
+    this->hitPoints = 100;
+    this->maxHitPoints = 100;
+    this->energyPoints = 50;
+    this->attackDamage = 20;
     std::cout << "New ScavTrap" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other):Name(other.Name), hitPoints(other.hitPoints),
-    energyPoints(other.energyPoints), attackDamage(other.attackDamage){
-        std::cout << "Copy ScavTrap" << std::endl;
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other){
+    this->Name = other.Name;
+    this->hitPoints = other.hitPoints;
+    this->maxHitPoints = other.maxHitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+    std::cout << "Copy ScavTrap" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &trap){
     std::cout << "Copy assignement ScavTrap" << std::endl;
     this->Name = trap.Name;
     this->hitPoints = trap.hitPoints;
+    this->maxHitPoints = trap.maxHitPoints;
     this->attackDamage = trap.attackDamage;
     this->energyPoints = trap.energyPoints;
     return *this;

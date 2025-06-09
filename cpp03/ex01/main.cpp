@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/04 15:13:03 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/09 12:34:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,22 @@ int main()
     ClapTrap carlos("Clap");
     ScavTrap bigCarlos("Scav");
 
-    carlos.attack("random");
-    carlos.beRepaired(1);
-    carlos.attack("random");
+    std::cout << "CLAPTRAP" << std::endl;
     carlos.attack("random");
     carlos.beRepaired(1);
     carlos.takeDamage(10);
     carlos.attack("random");
-    carlos.attack("random");
     carlos.beRepaired(1);
-    carlos.attack("random");
-    carlos.attack("random");
-    //10 actions
-    carlos.beRepaired(1);
-    carlos.attack("random");
 
+    std::cout << "SCAVTRAP" << std::endl;
+    bigCarlos.attack("random");
+    bigCarlos.beRepaired(1);
+    bigCarlos.takeDamage(1);
     bigCarlos.attack("random");
     bigCarlos.beRepaired(1);
     bigCarlos.attack("random");
-    bigCarlos.attack("random");
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
-    bigCarlos.attack("random");
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
-    bigCarlos.attack("random");
+    bigCarlos.guardGate();
+    bigCarlos.takeDamage(99);
     //10 actions
     bigCarlos.beRepaired(1);
     bigCarlos.attack("random");

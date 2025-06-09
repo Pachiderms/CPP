@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 13:58:26 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/09 12:36:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,43 +21,37 @@ int main()
     ScavTrap bigCarlos("Scav");
     FragTrap bigbigCarlos("Frag");
 
+    std::cout << "CLAPTRAP" << std::endl;
     carlos.attack("random");
     carlos.beRepaired(1);
-    carlos.attack("random");
-    carlos.attack("random");
-    carlos.beRepaired(1);
-    carlos.attack("random");
+    carlos.takeDamage(10);
     carlos.attack("random");
     carlos.beRepaired(1);
-    carlos.attack("random");
-    carlos.attack("random");
-    //10 actions
-    carlos.beRepaired(1);
-    carlos.attack("random");
 
+    std::cout << "SCAVTRAP" << std::endl;
+    bigCarlos.attack("random");
+    bigCarlos.beRepaired(1);
+    bigCarlos.takeDamage(1);
     bigCarlos.attack("random");
     bigCarlos.beRepaired(1);
     bigCarlos.attack("random");
-    bigCarlos.attack("random");
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
-    bigCarlos.attack("random");
-    bigCarlos.beRepaired(1);
-    bigCarlos.attack("random");
-    bigCarlos.attack("random");
+    bigCarlos.guardGate();
+    bigCarlos.takeDamage(99);
     //10 actions
     bigCarlos.beRepaired(1);
     bigCarlos.attack("random");
 
+    std::cout << "FRAGTRAP" << std::endl;
     bigbigCarlos.attack("random");
     bigbigCarlos.beRepaired(1);
+    bigbigCarlos.takeDamage(47);
     bigbigCarlos.attack("random");
+    bigbigCarlos.beRepaired(12);
     bigbigCarlos.attack("random");
-    bigbigCarlos.beRepaired(1);
-    bigbigCarlos.attack("random");
-    bigbigCarlos.attack("random");
-    bigbigCarlos.beRepaired(1);
-    bigbigCarlos.attack("random");
+    bigbigCarlos.beRepaired(18);
+    bigbigCarlos.highFivesGuy();
+    bigbigCarlos.takeDamage(110);
+    bigbigCarlos.highFivesGuy();
     bigbigCarlos.attack("random");
     //10 actions
     bigbigCarlos.beRepaired(1);

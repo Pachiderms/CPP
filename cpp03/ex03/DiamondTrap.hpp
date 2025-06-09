@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:33:55 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/20 14:15:28 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/09 13:33:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,13 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
     private:
-        std::string Name;
-        int hitPoints;
-        int energyPoints;
-        int attackDamage;
+        std::string name;
     public:
         DiamondTrap();
         DiamondTrap(std::string name);
         DiamondTrap(const DiamondTrap &other);
         DiamondTrap& operator=(const DiamondTrap &trap);
-        ~DiamondTrap();
+        virtual ~DiamondTrap();
         void attack(const std::string &target);
         void guardGate();
         void highFivesGuy();

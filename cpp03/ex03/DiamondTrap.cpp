@@ -3,28 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:33:58 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/04 14:52:19 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/09 13:40:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : Name("diamond"), hitPoints(100),
-    energyPoints(100), attackDamage(30){
+DiamondTrap::DiamondTrap() : ClapTrap("DiamondTrap_clap_trap"){
+    this->name = "DiamondTrap";
+    this->hitPoints = FragTrap::hitPoints;
+    this->maxHitPoints = FragTrap::maxhitPoints;
+    this->energyPoints = ScavTrap::energyPoints;
+    this->attackDamage = FragTraap::attackDamage;
     std::cout << "New default DiamondTrap" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name):ClapTrap(name += "_clap_name"), Name(name), hitPoints(100),
-energyPoints(100), attackDamage(30){
+DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name"){
+    this->name = _name;
+    this->hitPoints = FragTrap::hitPoints;
+    this->maxHitPoints = FragTrap::hitPoints;
+    this->energyPoints = ScavTrap::energyPoints;
+    this->attackDamage = FragTraap::attackDamage;
     std::cout << "New DiamondTrap" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other):Name(other.Name), hitPoints(other.hitPoints),
-    energyPoints(other.energyPoints), attackDamage(other.attackDamage){
-        std::cout << "Copy DiamondTrap" << std::endl;
+DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), ScavTrap(copy), FragTrap(copy){
+    this->Name = other.Name;
+    this->hitPoints = other.hitPoints;
+    this->maxHitPoints = other.maxHitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+    std::cout << "Copy DiamondTrap" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap &trap){
@@ -41,29 +53,22 @@ DiamondTrap::~DiamondTrap(){
 }
 
 void DiamondTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0 || this->hitPoints <= 0)
-        return ;
-    std::cout << "DiamondTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
-    this->energyPoints--;
+    ScavTrap::attack(target);
     return ;
 }
 
 void DiamondTrap::guardGate(){
-    if (this->hitPoints <= 0)
-        return;
-    std::cout << "Gate keeper mode activated!" << std::endl;
+    ScavTrap::guardGate();
     return ;
 }
 
 void DiamondTrap::highFivesGuy(){
-    if (this->hitPoints <= 0)
-        return;
-    std::cout << "Can I get a High Five?!" << std::endl;
+    FragTrap::highFivesGuy();
     return ;
 }
 
 void DiamondTrap::whoAmI(){
     if (this->hitPoints <= 0)
         return;
-    std::cout << this->Name << "Clap name: " << std::endl;
+    std::cout << this->Name << " Clap name: " << this->name << std::endl;
 }
