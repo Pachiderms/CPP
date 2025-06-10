@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 12:34:19 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/10 11:18:54 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ int main()
     //10 actions
     bigCarlos.beRepaired(1);
     bigCarlos.attack("random");
+    std::cout << "dead" << std::endl;
+    bigCarlos.takeDamage(5);
+    std::cout << "Still dead" << std::endl;
+    bigCarlos.beRepaired(1);
+    std::cout << "Revive" << std::endl;
+    bigCarlos.beRepaired(5);
+    bigCarlos.attack("AfterRevive");
 
     return 0;
 }

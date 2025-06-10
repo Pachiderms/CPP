@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:49 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 17:23:03 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/10 11:20:53 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main()
     std::cout << "Energy Points " << diamond.getEnergyAmount() << std::endl;
     std::cout << "Hit Points " << diamond.getHitPoints() << std::endl;
     
+    std::cout << "Who AM I" << std::endl;
     diamond.whoAmI();
     diamond.attack("random");
     diamond.takeDamage(40);

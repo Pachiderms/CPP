@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 13:31:48 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/10 11:02:55 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ ScavTrap::~ScavTrap(){
 }
 
 void ScavTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0 || this->hitPoints <= 0)
+    if (this->energyPoints <= 0)
+    {
+        std::cout << "Not enough Energy !" << std::endl;
+        return ;
+    }
+    if (this->hitPoints <= 0)
         return ;
     std::cout << "ScavTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     this->energyPoints--;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 13:29:55 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/10 11:06:37 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,6 @@ FragTrap& FragTrap::operator=(const FragTrap &trap){
 
 FragTrap::~FragTrap(){
     std::cout << "FragTrap " << this->Name << " destroyed" << std::endl;
-}
-
-void FragTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0 || this->hitPoints <= 0)
-        return ;
-    std::cout << "FragTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
-    this->energyPoints--;
-    return ;
 }
 
 void FragTrap::highFivesGuy(){

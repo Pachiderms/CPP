@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 13:07:00 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/10 11:15:24 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,12 @@ ClapTrap::~ClapTrap(){
 }
 
 void ClapTrap::attack(const std::string &target){
-    if (this->energyPoints <= 0 || this->hitPoints <= 0)
+    if (this->energyPoints <= 0)
+    {
+        std::cout << "Not enough Energy !" << std::endl;
+        return ;
+    }
+    if (this->hitPoints <= 0)
         return ;
     std::cout << "ClapTrap " << this->Name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     this->energyPoints--;
@@ -57,9 +62,14 @@ void ClapTrap::takeDamage(unsigned int amount){
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if (this->energyPoints <= 0 || this->hitPoints <= 0)
+    if (this->energyPoints <= 0)
+    {
+        std::cout << "Not enough Energy !" << std::endl;
         return ;
-    if (this->hitPoints >= 10)
+    }
+    if ((this->hitPoints + (int)amount) < 0)
+        return ;
+    if (this->hitPoints >= this->maxHitPoints)
     {
         std::cout << "ClapTrap " << this->Name << " has nothing to repair." << std::endl;
         return ;

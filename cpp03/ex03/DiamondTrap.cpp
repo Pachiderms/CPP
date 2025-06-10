@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:33:58 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/09 17:21:11 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/10 11:35:49 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ DiamondTrap::DiamondTrap() : ClapTrap("DiamondTrap_clap_trap"){
 }
 
 DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name"){
-    this->Name = _name;
     this->name = _name + "_clap_name";
     this->hitPoints = 100;
     this->maxHitPoints = 100;
@@ -72,7 +71,7 @@ void DiamondTrap::highFivesGuy(){
 void DiamondTrap::whoAmI(){
     if (this->hitPoints <= 0)
         return;
-    std::cout << this->Name << " Clap name: " << this->name << std::endl;
+    std::cout << this->name << " Clap name: " << ClapTrap::Name << std::endl;
 }
 
 int DiamondTrap::getAttack()
