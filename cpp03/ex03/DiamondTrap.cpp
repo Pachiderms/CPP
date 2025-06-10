@@ -6,15 +6,14 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:33:58 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/10 11:35:49 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/10 14:04:57 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : ClapTrap("DiamondTrap_clap_trap"){
-    this->Name = "DiamondTrap";
-    this->name = "DiamondTrap_clap_name";
+    this->name = "DiamondTrap";
     this->hitPoints = 100;
     this->maxHitPoints = 100;
     this->attackDamage = 30;
@@ -23,7 +22,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("DiamondTrap_clap_trap"){
 }
 
 DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name"){
-    this->name = _name + "_clap_name";
+    this->name = _name;
     this->hitPoints = 100;
     this->maxHitPoints = 100;
     this->attackDamage = 30;
@@ -44,6 +43,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &trap){
     std::cout << "Copy assignement DiamondTrap" << std::endl;
     this->Name = trap.Name;
     this->hitPoints = trap.hitPoints;
+    this->maxHitPoints = trap.maxHitPoints;
     this->attackDamage = trap.attackDamage;
     this->energyPoints = trap.energyPoints;
     return *this;
@@ -71,7 +71,7 @@ void DiamondTrap::highFivesGuy(){
 void DiamondTrap::whoAmI(){
     if (this->hitPoints <= 0)
         return;
-    std::cout << this->name << " Clap name: " << ClapTrap::Name << std::endl;
+    std::cout << "name: " << this->name << ", Clap name: " << ClapTrap::Name << std::endl;
 }
 
 int DiamondTrap::getAttack()

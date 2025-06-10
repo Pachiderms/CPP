@@ -6,24 +6,24 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:36:52 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/10 11:15:28 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/10 13:51:03 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : Name("Trap"), hitPoints(10),
-    energyPoints(10), attackDamage(0){
+    energyPoints(10), attackDamage(0), maxHitPoints(10){
     std::cout << "New default ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name):Name(name), hitPoints(10),
-    energyPoints(10), attackDamage(0){
+    maxHitPoints(10), energyPoints(10), attackDamage(0){
     std::cout << "New ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other):Name(other.Name), hitPoints(other.hitPoints),
-    energyPoints(other.energyPoints), attackDamage(other.attackDamage){
+    energyPoints(other.energyPoints), attackDamage(other.attackDamage), maxHitPoints(other.maxHitPoints){
         std::cout << "Copy ClapTrap" << std::endl;
 }
 
@@ -31,6 +31,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &trap){
     std::cout << "Copy assignement ClapTrap" << std::endl;
     this->Name = trap.Name;
     this->hitPoints = trap.hitPoints;
+    this->maxHitPoints = trap.maxHitPoints;
     this->attackDamage = trap.attackDamage;
     this->energyPoints = trap.energyPoints;
     return *this;
