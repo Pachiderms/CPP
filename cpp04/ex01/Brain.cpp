@@ -51,3 +51,7 @@ void Brain::addIdea(std::string idea){
 
     return ;
 }
+
+std::string Brain::think(int i) const{
+    return ideas[i];
+}

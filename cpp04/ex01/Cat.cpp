@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/24 11:54:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/11 14:55:26 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Cat::~Cat(){
 }
 
 Cat::Cat(const Cat &other){
-    *this = other;
+    this->type = other.type;
+    this->brain = new Brain();
     std::cout << "Cat Copy Constructor Called" << std::endl;
 }
 
@@ -44,4 +45,16 @@ void Cat::makeSound()const{
     std::cout << "MEOW!!" << std::endl;
 
     return ;
+}
+
+void Cat::addIdea(std::string idea) const{
+    
+    const std::string& _idea = idea;
+    this->brain->addIdea(idea);
+
+    return ;   
+}
+
+std::string Cat::think(int i) const{
+    return this->brain->think(i);
 }

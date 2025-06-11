@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/24 12:45:05 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/11 15:40:37 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 
     j->makeSound(); //will output the cat sound!
     i->makeSound();
-    
+
     const Animal* dogCopy = j;
     const Animal* catCopy(i);
 
@@ -54,11 +54,19 @@ int main()
     }
     std::cout << "\n" << "MY TESTS" << std::endl;
     
-    Dog* dog = new Dog();
+    const Dog* dog = new Dog();
+    const Dog* dogcpy = new Dog();
 
     dog->addIdea("i want a bone");
 
+    std::cout << dog->think(0) << std::endl;
+
     delete dog;
+
+    // dogcpy->addIdea("copy deleted");
+    // std::cout << dogcpy->think(0) << std::endl;
+
+    //delete dogcpy;
 
     return 0;
 }

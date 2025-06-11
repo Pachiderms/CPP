@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:02 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/24 12:31:11 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/11 15:40:54 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Dog::~Dog(){
 }
 
 Dog::Dog(const Dog &other){
-    *this = other;
+    this->type = other.type;
+    this->brain = new Brain();
     std::cout << "Dog Copy Constructor Called" << std::endl;
 }
 
@@ -46,10 +47,14 @@ void Dog::makeSound()const{
     return ;
 }
 
-void Dog::addIdea(std::string idea){
+void Dog::addIdea(std::string idea) const{
     
     const std::string& _idea = idea;
     this->brain->addIdea(idea);
 
     return ;   
+}
+
+std::string Dog::think(int i) const{
+    return this->brain->think(i);
 }

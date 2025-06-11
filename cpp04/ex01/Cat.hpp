@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:59 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/24 11:45:38 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/11 14:53:16 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class Cat : public Animal
         ~Cat();
 
         void makeSound()const;
+        void addIdea(std::string idea) const;
+        std::string think(int i) const;
 };
 
 #endif

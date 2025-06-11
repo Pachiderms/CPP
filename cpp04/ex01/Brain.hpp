@@ -25,7 +25,7 @@ class Brain
         Brain& operator=(const Brain &brain);
         ~Brain();
 
-        void addIdea(std::string idea);
+        void addIdea(std::string const idea);
         std::string think(int i)const;
 };
 

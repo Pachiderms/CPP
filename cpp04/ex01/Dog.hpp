@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:05 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/24 12:31:04 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/11 14:53:07 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class Dog : public Animal
         ~Dog();
 
         void makeSound()const;
-        void addIdea(std::string idea);
+        void addIdea(std::string idea) const;
+        std::string think(int i) const;
 };
 
 #endif
