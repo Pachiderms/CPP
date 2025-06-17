@@ -16,7 +16,7 @@ CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp AMateria.cpp Character.cpp ICharacter.cpp \
-	Cure.cpp Ice.cpp \
+	Cure.cpp Ice.cpp IMateriaSource.cpp MaterciaSource.cpp \
 
 OBJS = ${SRC:.cpp=.o}
 

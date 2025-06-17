@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:31:29 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 16:43:08 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/17 17:07:25 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class AMateria
         std::string type;
     public:
         AMateria();
-        ~AMateria();
+        virtual ~AMateria() {};
         AMateria(std::string const & type);
         AMateria(AMateria const &other);
         AMateria& operator=(const AMateria &mat);

@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:45:08 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 16:41:24 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/17 17:12:55 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ class Ice : public AMateria
         Ice(const Ice& other);
         Ice& operator=(const Ice &ice);
 
-        virtual AMateria* clone() const;
+        AMateria* clone() const;
         void use(ICharacter& target);
 };
