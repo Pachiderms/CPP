@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   A_Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 14:48:50 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 14:07:54 by tzizi            ###   ########.fr       */
+/*   Created: 2025/02/20 14:48:54 by tzizi             #+#    #+#             */
+/*   Updated: 2025/06/17 14:08:30 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "A_Animal.hpp"
 
-#include <iostream>
+A_Animal::A_Animal(){
+    std::cout << "A_Animal Default Constructor Called" << std::endl;
+}
 
-class Animal
-{
-    protected:
-        std::string type;
-    public:
-        Animal();
-        Animal(const Animal &other);
-        Animal& operator=(const Animal &animal);
-        virtual ~Animal();
+A_Animal::~A_Animal(){
+    std::cout << "A_Animal Destructor Called" << std::endl;
+}
 
-        std::string getType()const;
-        virtual void makeSound()const;
-};
-
-#endif
+std::string A_Animal::getType()const{
+    return this->type;
+}

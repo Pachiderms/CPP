@@ -6,11 +6,11 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 14:02:45 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/17 14:28:32 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "A_Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
@@ -18,40 +18,41 @@
 
 int main()
 {
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
+    //const A_Animal* test = new A_Animal();
+    const A_Animal* j = new Dog();
+    const A_Animal* i = new Cat();
 
-    // std::cout << j->getType() << " " << std::endl;
-    // std::cout << i->getType() << " " << std::endl;
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
     
 
-    // j->makeSound(); //will output the cat sound!
-    // i->makeSound();
+    j->makeSound(); //will output the cat sound!
+    i->makeSound();
 
-    // const Animal* dogCopy = j;
-    // const Animal* catCopy(i);
+    const A_Animal* dogCopy = j;
+    const A_Animal* catCopy(i);
 
-    // dogCopy->makeSound();
-    // catCopy->makeSound();
+    dogCopy->makeSound();
+    catCopy->makeSound();
     
-    // delete j;
-    // delete i;
+    delete j;
+    delete i;
 
 
-    // std::cout << "\n" << "ANIMALS ARRAY" << std::endl;
-    // const Animal* animals[8];
-    // for (int i=0; i<8; i++){
-    //     if (i < 4){
-    //         animals[i] = new Dog();
-    //     }else{
-    //         animals[i] = new Cat();
-    //     }
-    // }
+    std::cout << "\n" << "ANIMALS ARRAY" << std::endl;
+    const A_Animal* animals[8];
+    for (int i=0; i<8; i++){
+        if (i < 4){
+            animals[i] = new Dog();
+        }else{
+            animals[i] = new Cat();
+        }
+    }
 
-    // for (int i=0; i<8; i++){
-    //     animals[i]->makeSound();
-    //     delete animals[i];
-    // }
+    for (int i=0; i<8; i++){
+        animals[i]->makeSound();
+        delete animals[i];
+    }
     std::cout << "\n" << "MY TESTS" << std::endl;
     
     const Dog* dog = new Dog();

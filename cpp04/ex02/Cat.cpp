@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 14:19:18 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/11 14:55:26 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Cat.hpp"
 
-WrongCat::WrongCat(){
-    this->type = "WrongCat";
+Cat::Cat(){
+    this->type = "Cat";
     this->brain = new Brain();
-    std::cout << "WrongCat Default Constructor Called" << std::endl;
+    std::cout << "Cat Default Constructor Called" << std::endl;
 }
 
-WrongCat::~WrongCat(){
+Cat::~Cat(){
     delete this->brain;
-    std::cout << "WrongCat Destructor Called" << std::endl;
+    std::cout << "Cat Destructor Called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &other){
+Cat::Cat(const Cat &other){
     this->type = other.type;
     this->brain = new Brain();
-    std::cout << "WrongCat Copy Constructor Called" << std::endl;
+    std::cout << "Cat Copy Constructor Called" << std::endl;
 }
 
-WrongCat& WrongCat::operator=(const WrongCat &cat){
-    std::cout << "WrongCat Copy  Assignement Constructor Called" << std::endl;
+Cat& Cat::operator=(const Cat &cat){
+    std::cout << "Cat Copy  Assignement Constructor Called" << std::endl;
     
     if (this != &cat){
         this->type = cat.type;
@@ -41,13 +41,13 @@ WrongCat& WrongCat::operator=(const WrongCat &cat){
     return *this;
 }
 
-void WrongCat::makeSound()const{
-    std::cout << "WRONG MEOW!!" << std::endl;
+void Cat::makeSound()const{
+    std::cout << "MEOW!!" << std::endl;
 
     return ;
 }
 
-void WrongCat::addIdea(std::string idea) const{
+void Cat::addIdea(std::string idea) const{
     
     const std::string& _idea = idea;
     this->brain->addIdea(idea);
@@ -55,6 +55,6 @@ void WrongCat::addIdea(std::string idea) const{
     return ;   
 }
 
-std::string WrongCat::think(int i) const{
+std::string Cat::think(int i) const{
     return this->brain->think(i);
 }
