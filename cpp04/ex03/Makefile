@@ -33,4 +33,6 @@ fclean: clean
 
 re: fclean all
 
+no_objs: all clean
+
 .PHONY: all re clean fclean
