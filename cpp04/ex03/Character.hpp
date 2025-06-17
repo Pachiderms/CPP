@@ -6,23 +6,23 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:38:11 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 15:25:52 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/17 16:54:40 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#define ICHARACTER_HPP
+#define CHARACTER_HPP
 
 # include <iostream>
-# include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Character : public ICharacter
 {
     public:
         Character();
-        Character(std::string _name);
+        Character(std::string const &  _name);
         ~Character();
         Character(const Character &other);
         Character& operator=(const Character &character);

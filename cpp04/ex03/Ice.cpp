@@ -6,14 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:45:27 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 15:23:51 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/17 16:52:09 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Ice.hpp"
 
-Ice::Ice(){
-    type = "ice";
+Ice::Ice() : AMateria("ice"){
     std::cout << "Ice Defualt Constructor Called" << std::endl;
 }
 
@@ -27,7 +26,12 @@ Ice::Ice(const Ice &other){
 }
 
 Ice& Ice::operator=(const Ice &ice){
+    if (this != &ice)
+    {
+        type = ice.type;
+    }
     std::cout << "Ice Copy Assignement Constructor Called" << std::endl;
+    return *this;
 }
 
 AMateria* Ice::clone() const{

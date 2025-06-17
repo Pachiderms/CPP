@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 15:04:07 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 15:46:24 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/17 16:54:33 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Character::Character(){
     std::cout << "Character Defualt Constructor Called" << std::endl;
 }
 
-Character::Character(std::string _name){
+Character::Character(std::string const & _name){
     name = _name;
     std::cout << "Character Parameter Constructor Called" << std::endl;
 }
@@ -42,9 +42,9 @@ void Character::equip(AMateria* m){
 }
 
 void Character::unequip(int idx){
-    
+    return ;
 }
 
 void Character::use(int idx, Character& target){
-    
+    return ;
 }

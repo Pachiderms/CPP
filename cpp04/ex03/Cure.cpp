@@ -6,14 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:45:17 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 15:24:06 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/17 16:51:29 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Cure.hpp"
 
-Cure::Cure(){
-    type = "cure";
+Cure::Cure() : AMateria("cure"){
     std::cout << "Cure Defualt Constructor Called" << std::endl;
 }
 
@@ -27,7 +26,12 @@ Cure::Cure(const Cure &other){
 }
 
 Cure& Cure::operator=(const Cure &cure){
+    if (this != &cure)
+    {
+        type = cure.type;
+    }
     std::cout << "Cure Copy Assignement Constructor Called" << std::endl;
+    return *this;
 }
 
 AMateria* Cure::clone() const{
