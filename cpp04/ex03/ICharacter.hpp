@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:38:11 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 17:31:49 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/18 15:30:16 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 #define ICHARACTER_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+class AMateria;
 
 class ICharacter
 {
     protected:
         std::string name;
+        AMateria *materials;
     public:
-        ICharacter();
+        ICharacter() {};
         virtual ~ICharacter() {}
+        ICharacter(std::string const &  _name);
         ICharacter(const ICharacter &other);
         ICharacter& operator=(const ICharacter &character);
 

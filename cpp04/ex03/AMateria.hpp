@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:31:29 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 17:31:42 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/18 15:03:34 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 class AMateria
 {
     protected:
-        std::string type;
+        std::string _type;
     public:
-        AMateria();
+        AMateria() {};
         virtual ~AMateria() {};
         AMateria(std::string const & type);
         AMateria(AMateria const &other);

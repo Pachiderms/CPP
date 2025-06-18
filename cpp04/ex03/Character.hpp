@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:38:11 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 17:13:05 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/18 15:40:34 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
+# include "Ice.hpp"
 
 class Character : public ICharacter
 {
@@ -30,5 +31,5 @@ class Character : public ICharacter
         std::string const & getName() const;
         void equip(AMateria* m);
         void unequip(int idx);
-        void use(int idx, Character& target);
+        void use(int idx, ICharacter& target);
 };

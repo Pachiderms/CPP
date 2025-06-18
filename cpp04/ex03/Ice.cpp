@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:45:27 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 16:52:09 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/18 14:56:22 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Ice::Ice(const Ice &other){
 Ice& Ice::operator=(const Ice &ice){
     if (this != &ice)
     {
-        type = ice.type;
+        _type = ice._type;
     }
     std::cout << "Ice Copy Assignement Constructor Called" << std::endl;
     return *this;
