@@ -13,56 +13,30 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
-    std::cout << "Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string const _name, int _grade): name(_name){
-    std::cout << "Parameter constructor called" << std::endl;
-    try{
-        if (_grade > 150)
-            throw GradeTooLowException();
-        if (_grade < 0)
-            throw GradeTooHighException();
-    }
-    catch(std::exception &e){
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
+Bureaucrat::Bureaucrat(std::string const _name, int _grade): grade(_grade), name(_name){
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade){
-    std::cout << "Copy constructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& buro){
-    std::cout << "Copy assignment operator called" << std::endl;
-    // if (this != &buro)
-    //     this->name = buro.getName();
+    if (this != &buro)
+    {
+        (std::string)this->name = buro.getName();
+        this->grade = buro.grade;
+    }
     return *this;
 }
 
-void Bureaucrat::gradePlus(int plus){
-    try{
-        if (grade - plus < 0)
-            throw GradeTooHighException();
-        else
-            grade -= plus;
-    }
-    catch (std::exception & e){
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
+void Bureaucrat::gradeIncrement(){
+    grade.Increment();
     return ;
 }
 
-void Bureaucrat::gradeMinus(int minus){
-    try{
-        if (grade + minus > 150)
-            throw GradeTooHighException();
-        else
-        grade += minus;
-    }
-    catch (std::exception & e){
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
+void Bureaucrat::gradeDecrement(){
+    grade.Decrement();
     return ;
 }
 
@@ -71,11 +45,7 @@ const std::string Bureaucrat::getName()const{
 }
 
 int Bureaucrat::getGrade()const{
-    return this->grade;
-}
-
-Bureaucrat::~Bureaucrat(){
-    std::cout << "Destructor called" << std::endl;
+    return this->grade.getGrade();
 }
 
 std::ostream & operator<<(std::ostream & o, const Bureaucrat& buro){

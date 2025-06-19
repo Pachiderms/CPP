@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:58:31 by tzizi             #+#    #+#             */
-/*   Updated: 2025/04/03 15:25:40 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 15:37:50 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,22 @@ int main()
 
     Bureaucrat plus("plus", 0);
     std::cout << plus;
-    plus.gradePlus(1);
+    plus.gradeIncrement();
     std::cout << plus;
-    plus.gradeMinus(10);
+    plus.gradeDecrement();
     std::cout << plus;
-    plus.gradeMinus(139);
+    plus.gradeDecrement();
     std::cout << plus;
-    plus.gradeMinus(2);
-    std::cout << plus;
+
+    Bureaucrat minus("minus", 150);
+    std::cout << minus;
+    minus.gradeIncrement();
+    std::cout << minus;
+    minus.gradeDecrement();
+    std::cout << minus;
+    minus.gradeDecrement();
+    std::cout << minus;
+    minus.gradeDecrement();
+    std::cout << minus;
     return 0;
 }
