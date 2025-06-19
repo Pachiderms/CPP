@@ -52,6 +52,7 @@ void Brain::addIdea(std::string idea){
     return ;
 }
 
-std::string Brain::think(int i) const{
+std::string const Brain::getIdea(int i) const{
+    if (i < 0 || i > ideas->size() || i > 99){return "";}
     return ideas[i];
 }

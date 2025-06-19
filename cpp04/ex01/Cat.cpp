@@ -6,14 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/11 14:55:26 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:43:06 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(){
-    this->type = "Cat";
+Cat::Cat() : Animal("Cat"){
     this->brain = new Brain();
     std::cout << "Cat Default Constructor Called" << std::endl;
 }
@@ -55,6 +54,6 @@ void Cat::addIdea(std::string idea) const{
     return ;   
 }
 
-std::string Cat::think(int i) const{
-    return this->brain->think(i);
+std::string Cat::getIdea(int i) const{
+    return this->brain->getIdea(i);
 }

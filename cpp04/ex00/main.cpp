@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/22 20:23:26 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/19 11:24:10 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 int main()
 {
-    const Animal* meta = new Animal();
+    const Dog* dog = new Dog();
+    const Cat* cat = new Cat();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
@@ -27,26 +28,27 @@ int main()
 
     i->makeSound(); //will output the cat sound!
     j->makeSound();
-    meta->makeSound();
+    cat->makeSound(); //will output the cat sound!
+    dog->makeSound();
     
-    const WrongAnimal* smurf = new WrongAnimal();
-    const WrongAnimal* k = new WrongCat();
+    const WrongAnimal* smurf = new WrongCat();
+    const WrongCat* k = new WrongCat();
 
-    std::cout << k->getType() << " " << std::endl;
+    std::cout << k->getType() << std::endl;
+    std::cout << smurf->getType() << std::endl;
 
     k->makeSound(); //will output the cat sound!
     smurf->makeSound();
 
-    const Animal* dogCopy = j;
-    const Animal* catCopy(i);
+    const Animal* catCopy = new Cat(*cat);
 
-    dogCopy->makeSound();
     catCopy->makeSound();
-    
     
     delete j;
     delete i;
-    delete meta;
+    delete dog;
+    delete cat;
+    delete catCopy;
     delete k;
     delete smurf;
     return 0;

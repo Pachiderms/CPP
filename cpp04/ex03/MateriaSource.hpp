@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:08:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 17:12:50 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:55:32 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 
 #include "IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
-    private:
-        AMateria* materials;
     public:
         MateriaSource();
-        ~MateriaSource();
+        MateriaSource(const MateriaSource &other);
+        virtual ~MateriaSource();
         void learnMateria(AMateria*);
         AMateria* createMateria(std::string const & type);
 };

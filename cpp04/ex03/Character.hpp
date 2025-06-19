@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:38:11 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/18 15:40:34 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:55:10 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Character : public ICharacter
     public:
         Character();
         Character(std::string const &  _name);
-        ~Character();
+        virtual ~Character();
         Character(const Character &other);
         Character& operator=(const Character &character);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:49:27 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/24 10:55:23 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/19 11:15:24 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class WrongAnimal
         virtual ~WrongAnimal();
 
         std::string getType()const;
-        virtual void makeSound()const;
+        void makeSound()const;
 };
 
 #endif

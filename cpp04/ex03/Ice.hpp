@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:45:08 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 17:12:55 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:55:23 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Ice : public AMateria
 {
     public:
         Ice();
-        ~Ice();
+        virtual~Ice();
         Ice(const Ice& other);
         Ice& operator=(const Ice &ice);
 

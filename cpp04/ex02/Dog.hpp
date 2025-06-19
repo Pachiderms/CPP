@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:05 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 14:09:24 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:52:45 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class Dog : public A_Animal
         Dog();
         Dog(const Dog &other);
         Dog& operator=(const Dog &dog);
-        ~Dog();
+        virtual ~Dog();
 
         void makeSound()const;
         void addIdea(std::string idea) const;
-        std::string think(int i) const;
+        std::string getIdea(int i) const;
 };
 
 #endif

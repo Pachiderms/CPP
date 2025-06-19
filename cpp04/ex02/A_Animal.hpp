@@ -22,6 +22,7 @@ class A_Animal
     public:
         A_Animal();
         A_Animal(const A_Animal &other);
+        A_Animal(std::string _type);
         A_Animal& operator=(const A_Animal &animal);
         virtual ~A_Animal();
 

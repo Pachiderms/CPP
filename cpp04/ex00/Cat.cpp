@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/02/24 10:57:21 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/19 11:13:12 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(){
-    this->type = "Cat";
+Cat::Cat() : Animal("Cat"){
     std::cout << "Cat Default Constructor Called" << std::endl;
 }
 

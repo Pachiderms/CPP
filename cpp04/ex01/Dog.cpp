@@ -6,14 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:02 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/11 15:40:54 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:46:03 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(){
-    this->type = "Dog";
+Dog::Dog() : Animal("Dog"){
     this->brain = new Brain();
     std::cout << "Dog Default Constructor Called" << std::endl;
 }
@@ -25,7 +24,7 @@ Dog::~Dog(){
 
 Dog::Dog(const Dog &other){
     this->type = other.type;
-    this->brain = new Brain();
+    this->brain = new Brain(*other.brain);
     std::cout << "Dog Copy Constructor Called" << std::endl;
 }
 
@@ -34,7 +33,7 @@ Dog& Dog::operator=(const Dog &dog){
     
     if (this != &dog){
         this->type = dog.type;
-        this->brain = new Brain();
+        this->brain = new Brain(*dog.brain);
         this->brain = dog.brain;
     }
 
@@ -55,6 +54,6 @@ void Dog::addIdea(std::string idea) const{
     return ;   
 }
 
-std::string Dog::think(int i) const{
-    return this->brain->think(i);
+std::string Dog::getIdea(int i) const{
+    return this->brain->getIdea(i);
 }

@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:54 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 14:07:51 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:48:56 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ Animal::Animal(){
 Animal::Animal(const Animal &other){
     *this = other;
     std::cout << "Animal Copy Constructor Called" << std::endl;
+}
+
+Animal::Animal(std::string _type){
+    std::cout << "Animal Default Constructor Called" << std::endl;
+    type = _type;
 }
 
 Animal& Animal::operator=(const Animal &animal){

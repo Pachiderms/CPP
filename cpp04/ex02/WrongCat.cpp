@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/17 14:19:18 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 11:43:06 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ void WrongCat::addIdea(std::string idea) const{
     return ;   
 }
 
-std::string WrongCat::think(int i) const{
-    return this->brain->think(i);
+std::string WrongCat::getIdea(int i) const{
+    return this->brain->getIdea(i);
 }

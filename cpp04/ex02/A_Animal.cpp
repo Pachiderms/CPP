@@ -16,6 +16,11 @@ A_Animal::A_Animal(){
     std::cout << "A_Animal Default Constructor Called" << std::endl;
 }
 
+A_Animal::A_Animal(std::string _type){
+    std::cout << "A_Animal Parameter Constructor Called" << std::endl;
+    type = _type;
+}
+
 A_Animal::~A_Animal(){
     std::cout << "A_Animal Destructor Called" << std::endl;
 }

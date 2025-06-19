@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:38:11 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/18 15:30:16 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 09:30:08 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 # include <iostream>
 class AMateria;
 
+#define MAX_MATERIAS 4
+
 class ICharacter
 {
     protected:
         std::string name;
-        AMateria *materials;
+        AMateria* materias[MAX_MATERIAS];
     public:
         ICharacter() {};
         virtual ~ICharacter() {}

@@ -26,7 +26,7 @@ class Brain
         ~Brain();
 
         void addIdea(std::string const idea);
-        std::string think(int i)const;
+        std::string const getIdea(int i)const;
 };
 
 #endif
