@@ -6,11 +6,15 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:17:56 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 15:46:09 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 16:09:47 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Grade.hpp"
+
+Grade::Grade() : grade(150){
+
+}
 
 Grade::Grade(int _grade){
     try{
@@ -26,7 +30,7 @@ Grade::Grade(int _grade){
     }
 }
 
-void Grade::Increment(){
+void Grade::Increment() const{
     try{
         if (grade - 1 <= 0)
             throw GradeTooHighException();
@@ -39,7 +43,7 @@ void Grade::Increment(){
     return ;
 }
 
-void Grade::Decrement(){
+void Grade::Decrement() const{
     try{
         if (grade + 1 > 150)
             throw GradeTooLowException();

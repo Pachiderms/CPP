@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:18:04 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 15:30:18 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 16:09:38 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ class Grade
     private:
         int grade;
     public:
+        Grade();
         Grade(int _grade);
         ~Grade() {}
     
-        void Increment();
-        void Decrement();
+        void Increment() const;
+        void Decrement() const;
         int getGrade() const;
 
         class GradeTooHighException : public std::exception

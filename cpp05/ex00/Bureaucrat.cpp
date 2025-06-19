@@ -18,7 +18,8 @@ Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
 Bureaucrat::Bureaucrat(std::string const _name, int _grade): grade(_grade), name(_name){
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade){
+Bureaucrat::Bureaucrat(const Bureaucrat &other){
+    *this = other;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& buro){

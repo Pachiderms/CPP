@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:17:56 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 15:46:09 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 16:02:38 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Grade::Grade(int _grade){
     }
 }
 
-void Grade::Increment(){
+void Grade::Increment() const{
     try{
         if (grade - 1 <= 0)
             throw GradeTooHighException();
@@ -39,12 +39,12 @@ void Grade::Increment(){
     return ;
 }
 
-void Grade::Decrement(){
+const void Grade::Decrement(){
     try{
         if (grade + 1 > 150)
             throw GradeTooLowException();
         else
-            grade++;
+            grade--;
     }
     catch (std::exception & e){
         std::cout << "Exception: " << e.what() << std::endl;
