@@ -15,8 +15,8 @@ NAME = materials
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp AMateria.cpp Character.cpp ICharacter.cpp \
-	Cure.cpp Ice.cpp IMateriaSoure.cpp \
+SRC = main.cpp AMateria.cpp Character.cpp \
+	Cure.cpp Ice.cpp \
 	MateriaSoure.cpp \
 
 OBJS = ${SRC:.cpp=.o}

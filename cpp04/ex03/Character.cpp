@@ -6,18 +6,18 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 15:04:07 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:09:57 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 12:03:33 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Character.hpp"
 
-Character::Character() : ICharacter(){
+Character::Character(){
     for (int i = 0; i < MAX_MATERIAS; i++){materias[i] = NULL;}
     std::cout << "Character Defualt Constructor Called" << std::endl;
 }
 
-Character::Character(std::string const & _name) : ICharacter(_name){
+Character::Character(std::string const & _name) : name(_name){
     for (int i = 0; i < MAX_MATERIAS; i++){materias[i] = NULL;}
     std::cout << "Character Parameter Constructor Called" << std::endl;
 }

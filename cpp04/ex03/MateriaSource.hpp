@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:08:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:55:32 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 12:01:02 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 class MateriaSource : public IMateriaSource
 {
+    private:
+        AMateria* materias[MAX_MATERIAS];
     public:
         MateriaSource();
         MateriaSource(const MateriaSource &other);

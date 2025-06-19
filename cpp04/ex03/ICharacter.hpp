@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:38:11 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 09:30:08 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 12:03:27 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,8 @@ class AMateria;
 
 class ICharacter
 {
-    protected:
-        std::string name;
-        AMateria* materias[MAX_MATERIAS];
     public:
-        ICharacter() {};
         virtual ~ICharacter() {}
-        ICharacter(std::string const &  _name);
-        ICharacter(const ICharacter &other);
-        ICharacter& operator=(const ICharacter &character);
-
         virtual std::string const & getName() const = 0;
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;

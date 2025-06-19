@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:38:11 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:55:10 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/19 12:02:34 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 class Character : public ICharacter
 {
+    private:
+        std::string name;
+        AMateria* materias[MAX_MATERIAS];
     public:
         Character();
         Character(std::string const &  _name);
