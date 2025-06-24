@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:04:59 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:11:07 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/24 10:46:32 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ MateriaSource::~MateriaSource(){
 
 MateriaSource::MateriaSource(const MateriaSource &other){
     *this = other;
+}
+
+MateriaSource & MateriaSource::operator=(const MateriaSource & mat){
+    std::cout << "Character Copy Assignement Constructor Called" << std::endl;
+    for (int i = 0; i < MAX_MATERIAS; i++){materias[i] = NULL;}
+    if (this != &mat)
+    {
+        for (int i = 0; i < MAX_MATERIAS; i++){if (mat.materias[i]) {
+            materias[i] = mat.materias[i]->clone();}
+        }
+    }
+    return *this;
 }
 
 void MateriaSource::learnMateria(AMateria* m){

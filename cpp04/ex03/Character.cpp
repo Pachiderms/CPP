@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 15:04:07 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 12:03:33 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/24 10:46:45 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ Character& Character::operator=(const Character &character){
     if (this != &character)
     {
         name = character.getName();
-        for (int i = 0; i < MAX_MATERIAS; i++){if (character.materias[i]) { materias[i] = character.materias[i]->clone();}}
+        for (int i = 0; i < MAX_MATERIAS; i++){if (character.materias[i]) {
+            materias[i] = character.materias[i]->clone();}
+        }
     }
     return *this;
 }
