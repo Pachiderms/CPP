@@ -6,13 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:49:28 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:25:01 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() :A_Animal("Cat"){
+Cat::Cat() : AAnimal("Cat"){
     this->brain = new Brain();
     std::cout << "Cat Default Constructor Called" << std::endl;
 }
@@ -33,8 +33,9 @@ Cat& Cat::operator=(const Cat &cat){
     
     if (this != &cat){
         this->type = cat.type;
-        this->brain = new Brain();
-        this->brain = cat.brain;
+        if (this->brain)
+            delete this->brain;
+        this->brain = new Brain(*cat.brain);
     }
 
     return *this;
@@ -47,8 +48,6 @@ void Cat::makeSound()const{
 }
 
 void Cat::addIdea(std::string idea) const{
-    
-    const std::string& _idea = idea;
     this->brain->addIdea(idea);
 
     return ;   

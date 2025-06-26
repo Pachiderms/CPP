@@ -6,11 +6,11 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/26 12:06:36 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:30:23 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
@@ -18,9 +18,9 @@
 
 int main()
 {
-    //const A_Animal* test = new A_Animal();
-    const A_Animal* j = new Dog();
-    const A_Animal* i = new Cat();
+    //const AAnimal* test = new AAnimal();
+    const AAnimal* j = new Dog();
+    const AAnimal* i = new Cat();
 
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
@@ -29,8 +29,8 @@ int main()
     j->makeSound(); //will output the cat sound!
     i->makeSound();
 
-    const A_Animal* dogCopy = j;
-    const A_Animal* catCopy(i);
+    const AAnimal* dogCopy = j;
+    const AAnimal* catCopy(i);
 
     dogCopy->makeSound();
     catCopy->makeSound();
@@ -40,7 +40,7 @@ int main()
 
 
     std::cout << "\n" << "ANIMALS ARRAY" << std::endl;
-    const A_Animal* animals[8];
+    const AAnimal* animals[8];
     for (int i=0; i<8; i++){
         if (i < 4){
             animals[i] = new Dog();

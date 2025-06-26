@@ -21,7 +21,10 @@ Brain::~Brain(){
 }
 
 Brain::Brain(const Brain &other){
-    *this = other;
+    for (int i=0; i<100; i++){
+        if (other.ideas[i].length() > 0)
+            this->ideas[i].assign(other.ideas[i]);
+    }
     std::cout << "Brain Copy Constructor Called" << std::endl;
 }
 
@@ -53,6 +56,6 @@ void Brain::addIdea(std::string idea){
 }
 
 std::string const Brain::getIdea(int i) const{
-    if (i < 0 || i > ideas->size() || i > 99){return "";}
+    if (i < 0 || i > (int)ideas->size() || i > 99){return "";}
     return ideas[i];
 }

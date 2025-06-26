@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:13:12 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:18:15 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cat::~Cat(){
 }
 
 Cat::Cat(const Cat &other){
-    *this = other;
+    this->type = other.type;
     std::cout << "Cat Copy Constructor Called" << std::endl;
 }
 

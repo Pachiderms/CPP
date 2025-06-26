@@ -13,7 +13,7 @@
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 
 class Brain
 {

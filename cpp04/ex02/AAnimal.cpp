@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A_Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 
-A_Animal::A_Animal(){
-    std::cout << "A_Animal Default Constructor Called" << std::endl;
+AAnimal::AAnimal(){
+    std::cout << "AAnimal Default Constructor Called" << std::endl;
 }
 
-A_Animal::A_Animal(std::string _type){
-    std::cout << "A_Animal Parameter Constructor Called" << std::endl;
+AAnimal::AAnimal(std::string _type){
+    std::cout << "AAnimal Parameter Constructor Called" << std::endl;
     type = _type;
 }
 
-A_Animal::~A_Animal(){
-    std::cout << "A_Animal Destructor Called" << std::endl;
+AAnimal::AAnimal(const AAnimal &other){
+    this->type = other.type;
 }
 
-std::string A_Animal::getType()const{
+AAnimal& AAnimal::operator=(const AAnimal &animal){
+    if (this != &animal){
+        this->type = animal.type;
+    }
+
+    return *this;
+}
+
+AAnimal::~AAnimal(){
+    std::cout << "AAnimal Destructor Called" << std::endl;
+}
+
+std::string AAnimal::getType()const{
     return this->type;
 }

@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:02 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:14:06 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:18:20 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::~Dog(){
 }
 
 Dog::Dog(const Dog &other){
-    *this = other;
+    this->type = other.type;
     std::cout << "Dog Copy Constructor Called" << std::endl;
 }
 

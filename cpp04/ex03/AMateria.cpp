@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:31:27 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/18 15:04:52 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:22:05 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ std::string const & AMateria::getType() const{
 }
 
 void AMateria::use(ICharacter& target){
+    (void)target;
     std::cout << "Base use function" << std::endl;
 }

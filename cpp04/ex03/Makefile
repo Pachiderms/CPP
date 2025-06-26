@@ -12,8 +12,8 @@
 
 NAME = materials
 
-CPP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp AMateria.cpp Character.cpp \
 	Cure.cpp Ice.cpp \
@@ -24,7 +24,7 @@ OBJS = ${SRC:.cpp=.o}
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	${CPP} ${FLAGS} ${OBJS} -o ${NAME}
+	${CXX} ${CPPFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 	rm -f *.o

@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:02 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:46:03 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:23:05 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ Dog& Dog::operator=(const Dog &dog){
     
     if (this != &dog){
         this->type = dog.type;
+        if (this->brain)
+            delete this->brain;
         this->brain = new Brain(*dog.brain);
-        this->brain = dog.brain;
     }
 
     return *this;
@@ -47,8 +48,6 @@ void Dog::makeSound()const{
 }
 
 void Dog::addIdea(std::string idea) const{
-    
-    const std::string& _idea = idea;
     this->brain->addIdea(idea);
 
     return ;   

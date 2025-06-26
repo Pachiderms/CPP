@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:57 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:43:06 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:13:54 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void WrongCat::makeSound()const{
 }
 
 void WrongCat::addIdea(std::string idea) const{
-    
-    const std::string& _idea = idea;
     this->brain->addIdea(idea);
 
     return ;   

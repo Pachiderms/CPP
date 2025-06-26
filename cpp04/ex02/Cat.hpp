@@ -6,17 +6,17 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:48:59 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:52:39 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 14:24:14 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public A_Animal
+class Cat : public AAnimal
 {
     private:
         Brain* brain;
