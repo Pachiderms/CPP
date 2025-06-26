@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:24:10 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 11:56:50 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@ int main()
     const Cat* cat = new Cat();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
+    const Animal* a = new Animal();
 
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
+    std::cout << a->getType() << std::endl;
 
     i->makeSound(); //will output the cat sound!
     j->makeSound();
+    a->makeSound();
     cat->makeSound(); //will output the cat sound!
     dog->makeSound();
     
@@ -51,5 +54,6 @@ int main()
     delete catCopy;
     delete k;
     delete smurf;
+    delete a;
     return 0;
 }

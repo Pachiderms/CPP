@@ -6,14 +6,14 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:45:27 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:09:35 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 12:16:57 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice"){
-    std::cout << "Ice Defualt Constructor Called" << std::endl;
+    std::cout << "Ice Default Constructor Called" << std::endl;
 }
 
 Ice::~Ice(){

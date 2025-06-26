@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 15:04:07 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/24 10:46:45 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 12:17:08 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Character::Character(){
     for (int i = 0; i < MAX_MATERIAS; i++){materias[i] = NULL;}
-    std::cout << "Character Defualt Constructor Called" << std::endl;
+    std::cout << "Character Default Constructor Called" << std::endl;
 }
 
 Character::Character(std::string const & _name) : name(_name){

@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:49:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 11:51:42 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 12:06:36 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ int main()
     
     Dog basic;
     basic.addIdea("Base Idea");
-    if (dogcpy)
+    std::cout << basic.getIdea(0) << std::endl;
+    std::cout << "SCOPE TEST" << std::endl;
+    if (1)
     {
         Dog tmp = basic;
         std::cout << tmp.getIdea(0) << std::endl;

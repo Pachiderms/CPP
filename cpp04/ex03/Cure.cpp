@@ -6,14 +6,14 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:45:17 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/18 14:56:14 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/06/26 12:16:49 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Cure.hpp"
 
 Cure::Cure() : AMateria("cure"){
-    std::cout << "Cure Defualt Constructor Called" << std::endl;
+    std::cout << "Cure Default Constructor Called" << std::endl;
 }
 
 Cure::~Cure(){
