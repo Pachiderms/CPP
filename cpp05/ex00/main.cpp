@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:58:31 by tzizi             #+#    #+#             */
-/*   Updated: 2025/06/19 15:45:08 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/07/01 10:43:17 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int main()
     std::cout << minus;
     minus.gradeDecrement();
     std::cout << minus;
+
     return 0;
 }
