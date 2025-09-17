@@ -6,13 +6,13 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:53:10 by tzizi             #+#    #+#             */
-/*   Updated: 2025/07/01 11:41:29 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/09/17 13:57:56 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Form.hpp"
 
-Form::Form() : name("Form"), gradeToSign(150), gradeToExec(150){
+Form::Form() : name("Form"), signedIndicator(false), gradeToSign(150), gradeToExec(150){
 
 }
 
@@ -20,11 +20,8 @@ Form::Form(std::string const _name, int _gradeToSign, int _gradeToExec): name(_n
 
 }
 
-// Form::Form(const Form &other){
-//     (std::string)this->name = other.name;
-//     // this->gradeToExec = other.gradeToExec;
-//     // this->gradeToSign = other.gradeToSign;
-// }
+Form::Form(const Form &other): name(other.name), gradeToExec(other.gradeToExec), gradeToSign(other.gradeToSign){
+}
 
 Form& Form::operator=(const Form& form){
     std::cout << "Copy assignment operator called" << std::endl;
@@ -65,25 +62,12 @@ const int Form::getGradeToExec() const{
     return gradeToExec;
 }
 
-void Form::signForm(Bureaucrat & buro){
-    if (signedIndicator){
-        std::cout << "Form: " << name << " already signed" << std::endl;
-        return ;
-    }
-    signedIndicator = beSigned(buro);
-    if (signedIndicator)
-        std::cout << "Bureaucrat: " << buro.getName()
-        << " signed" << "Form: " << this->name << std::endl;
-    else
-        std::cout << "Bureaucrat: " << buro.getName()
-        << " couldn't sign" << "Form: " << this->name
-        << " because " << std::endl;
-}
-
 bool Form::beSigned(Bureaucrat & buro) const{
     try{
-        if (buro.getGrade() <= gradeToSign)
+        if (buro.getGrade() <= gradeToSign){
+            signedIndicator = true;
             return true;
+        }
         else
             throw GradeTooLowException();
     }
@@ -94,18 +78,14 @@ bool Form::beSigned(Bureaucrat & buro) const{
     return false;
 }
 
-// int Form::getGrade()const{
-//     return this->grade;
-// }
-
-// void Form::signForm(Form form){
-//     if (form.beSigned(*this)){std::cout << name << " signed " << form.getName() << std::endl;}
-// }
+const bool Form::isSigned() const{
+    return this->signedIndicator;
+}
 
 std::ostream & operator<<(std::ostream & o, const Form & form){
     o << form.getName() << ", " << "sign grade "
     << form.getGradeToSign() << ", " << "exec grade "
-    << form.getGradeToExec()<<std::endl;
+    << form.getGradeToExec()<< std::endl;
 
     return o;
 }

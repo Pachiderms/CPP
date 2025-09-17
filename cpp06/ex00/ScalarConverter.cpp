@@ -6,19 +6,19 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:45:21 by tzizi             #+#    #+#             */
-/*   Updated: 2025/07/01 15:17:33 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/09/17 15:12:38 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(){
+// ScalarConverter::ScalarConverter(){
     
-}
+// }
 
-ScalarConverter::~ScalarConverter(){
+// ScalarConverter::~ScalarConverter(){
 
-}
+// }
 
 ScalarConverter::ScalarConverter(const ScalarConverter & other){
     *this = other;

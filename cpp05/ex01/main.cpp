@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:58:31 by tzizi             #+#    #+#             */
-/*   Updated: 2025/07/01 11:37:53 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/09/17 14:00:03 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,22 @@ int main()
 
     Bureaucrat plus("plus", 99);
     std::cout << plus;
-    plus.gradeIncrement();
-    std::cout << plus;
-    plus.gradeDecrement();
-    std::cout << plus;
-    plus.gradeDecrement();
-    std::cout << plus;
 
     Bureaucrat minus("minus", 52);
     std::cout << minus;
-    minus.gradeIncrement();
-    std::cout << minus;
-    minus.gradeIncrement();
-    std::cout << minus;
-    minus.gradeIncrement();
-    std::cout << minus;
-    minus.gradeIncrement();
-    std::cout << minus;
     
-    std::cout<< " PLUS: " << plus << " MINUS: " << minus << std::endl;
     Bureaucrat failSign("Fail", 101);
 
     Form form("My Form", 100, 50);
+    std::cout << form;
+    Form cp(form);
+    std::cout << cp;
 
-    form.signForm(failSign);
-    form.signForm(plus);
-    form.signForm(minus);
+    failSign.signForm(form);
+    plus.signForm(form);
+    minus.signForm(form);
 
-    
+    form.gradeToExecDecrement();
     
     return 0;
 }
