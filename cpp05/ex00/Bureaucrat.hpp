@@ -30,13 +30,13 @@ class Bureaucrat
         void gradeIncrement();
         void gradeDecrement();
         int getGrade() const;
-        const std::string getName() const;
+        std::string getName() const;
 
         class GradeTooHighException : public std::exception
         {
             public:
                 virtual const char* what() const throw(){
-                    return ("Grade Too High Exception");
+                    return ("Grade Too High Exception.");
                 }
         };
 
@@ -44,7 +44,7 @@ class Bureaucrat
         {
             public:
                 virtual const char* what() const throw(){
-                    return ("Grade Too Low Exception");
+                    return ("Grade Too Low Exception.");
                 }
         };
 };

@@ -75,7 +75,7 @@ void Bureaucrat::gradeDecrement(){
     return ;
 }
 
-const std::string Bureaucrat::getName()const{
+std::string Bureaucrat::getName()const{
     return this->name;
 }
 

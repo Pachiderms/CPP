@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:58:31 by tzizi             #+#    #+#             */
-/*   Updated: 2025/09/17 14:00:03 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/09/26 13:16:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int main()
     failSign.signForm(form);
     plus.signForm(form);
     minus.signForm(form);
-
-    form.gradeToExecDecrement();
     
     return 0;
 }
