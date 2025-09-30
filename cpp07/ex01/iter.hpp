@@ -2,8 +2,16 @@
 
 # include <iostream>
 
-template <typename A, typename L>
-static void iter(A * arr, L length) {return ;}
+template <typename A, A (*f)(A)>
+static void iter(A * arr, int length, A (*f)(A)) {
+    for (int i = 0; i < length; i++){
+        f(arr[i]);
+    }
+    return ;
+}
 
-template <typename T>
-static void spell(T arr, int length){std::cout << val << std::endl;}
+template <typename Element>
+static void f (Element &e){
+    e++;
+    return;
+}
