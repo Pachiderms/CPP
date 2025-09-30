@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
 }
@@ -50,20 +50,20 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& buro){
     return *this;
 }
 
-void Bureaucrat::signForm(Form & form){
+void Bureaucrat::signForm(AForm & AForm){
     try
     {
-        form.beSigned(*this);
+        AForm.beSigned(*this);
     }
     catch(std::exception& e)
     {
         std::cout << "Bureaucrat: " << this->name
-        << ", couldn't sign " << "Form: " << form.getName()
+        << ", couldn't sign " << "AForm: " << AForm.getName()
         << ", beacause: " << e.what() << std::endl;
         return;
     }
     std::cout << "Bureaucrat: " << this->name
-        << ", signed" << ", Form: " << form.getName() << std::endl;
+        << ", signed" << ", AForm: " << AForm.getName() << std::endl;
     return;
 }
 

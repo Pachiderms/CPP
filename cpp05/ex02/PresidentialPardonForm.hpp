@@ -13,15 +13,15 @@
 #pragma once
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
     public:
-        PresidentialPardonForm()
-        virtual ~PresidentialPardonForm()
-        PresidentialPardonForm(std::string target)
-        PresidentialPardonForm(const PresidentialPardonForm &other)
-        PresidentialPardonForm& operator=(const PresidentialPardonForm& ppf) = delete
-}
+        PresidentialPardonForm();
+        virtual ~PresidentialPardonForm();
+        PresidentialPardonForm(std::string target);
+        PresidentialPardonForm(const PresidentialPardonForm &other);
+        PresidentialPardonForm& operator=(const PresidentialPardonForm& ppf) = delete;
+};

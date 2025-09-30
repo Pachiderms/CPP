@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:53:07 by tzizi             #+#    #+#             */
-/*   Updated: 2025/09/26 14:23:32 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/30 15:01:34 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ class AForm
         const int gradeToSign;
         const int gradeToExec;
     public:
-        Form() {}
-        Form(std::string const _name, int _gardeToSign, int _gradeToExec);
-        Form(const Form &other);
-        Form& operator=(const Form& form) = delete;
-        virtual ~Form() {}
+        AForm();
+        AForm(std::string const _name, int _gardeToSign, int _gradeToExec);
+        AForm(const AForm &other);
+        AForm& operator=(const AForm& form) = delete;
+        virtual ~AForm() {}
 
         virtual void execute(Bureaucrat const & executor) const;
         
@@ -43,7 +43,7 @@ class AForm
         {
             public:
                 virtual const char* what() const throw(){
-                    return ("Form Already Signed Exception.");
+                    return ("AForm Already Signed Exception.");
                 }
         };
 
@@ -51,7 +51,7 @@ class AForm
         {
             public:
                 virtual const char* what() const throw(){
-                    return ("Form Not Signed Exception.");
+                    return ("AForm Not Signed Exception.");
                 }
         };
 
@@ -59,7 +59,7 @@ class AForm
         {
             public:
                 virtual const char* what() const throw(){
-                    return ("Grade Too High To Sign Form Exception.");
+                    return ("Grade Too High To Sign AForm Exception.");
                 }
         };
 
@@ -67,10 +67,10 @@ class AForm
         {
             public:
                 virtual const char* what() const throw(){
-                    return ("Grade Too Low To Sign Form Exception.");
+                    return ("Grade Too Low To Sign AForm Exception.");
                 }
         };
         
 };
 
-std::ostream& operator<<(std::ostream & o, const Form & form);
+std::ostream& operator<<(std::ostream & o, const AForm & AForm);

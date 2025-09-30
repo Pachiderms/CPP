@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,44 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : name("Form"), signedIndicator(false), gradeToSign(150), gradeToExec(150){
+AForm::AForm() : name("AForm"), signedIndicator(false), gradeToSign(150), gradeToExec(150){
 
 }
 
-Form::Form(std::string const _name, int _gradeToSign, int _gradeToExec): name(_name), gradeToSign(_gradeToSign), gradeToExec(_gradeToExec){
+AForm::AForm(std::string const _name, int _gradeToSign, int _gradeToExec): name(_name), gradeToSign(_gradeToSign), gradeToExec(_gradeToExec){
 
 }
 
-Form::Form(const Form &other): name(other.name), gradeToExec(other.gradeToExec), gradeToSign(other.gradeToSign){
+AForm::AForm(const AForm &other): name(other.name), gradeToExec(other.gradeToExec), gradeToSign(other.gradeToSign){
 }
 
-// Form& Form::operator=(const Form& form){
+// AForm& AForm::operator=(const AForm& form){
 //     std::cout << "Copy assignment operator called" << std::endl;
-//     if (this != &form)
+//     if (this != &AForm)
 //     {
-//         (std::string)this->name = form.name;
-//         gradeToExec = form.gradeToExec;
-//         gradeToSign = form.gradeToSign;
+//         (std::string)this->name = AForm.name;
+//         gradeToExec = AForm.gradeToExec;
+//         gradeToSign = AForm.gradeToSign;
 //     }
 //     return *this;
 // }
 
-std::string Form::getName()const{
+std::string AForm::getName()const{
     return this->name;
 }
 
-int Form::getGradeToSign() const{
+int AForm::getGradeToSign() const{
     return gradeToSign;
 }
 
-int Form::getGradeToExec() const{
+int AForm::getGradeToExec() const{
     return gradeToExec;
 }
 
-void Form::beSigned(const Bureaucrat& buro){
+void AForm::beSigned(const Bureaucrat& buro){
     if (this->signedIndicator){
         throw AlreadySignedException();
     }
@@ -58,14 +58,18 @@ void Form::beSigned(const Bureaucrat& buro){
         throw GradeTooLowException();
 }
 
-bool Form::isSigned() const{
+void AForm:: execute(Bureaucrat const & executor) const{
+    std::cout << "Base Execution of a Form." << std::endl;
+}
+
+bool AForm::isSigned() const{
     return this->signedIndicator;
 }
 
-std::ostream & operator<<(std::ostream & o, const Form & form){
-    o << form.getName() << ", " << "sign grade "
-    << form.getGradeToSign() << ", " << "exec grade "
-    << form.getGradeToExec()<< " signed: " << (form.isSigned() ? "yes." : "no.") << std::endl;
+std::ostream & operator<<(std::ostream & o, const AForm & AForm){
+    o << AForm.getName() << ", " << "sign grade "
+    << AForm.getGradeToSign() << ", " << "exec grade "
+    << AForm.getGradeToExec()<< " signed: " << (AForm.isSigned() ? "yes." : "no.") << std::endl;
 
     return o;
 }
