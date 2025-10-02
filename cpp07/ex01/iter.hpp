@@ -2,16 +2,11 @@
 
 # include <iostream>
 
-template <typename A, A (*f)(A)>
-static void iter(A * arr, int length, A (*f)(A)) {
-    for (int i = 0; i < length; i++){
-        f(arr[i]);
+template <typename T>
+void iter(T *arr, size_t length, void (*foo)(T &)) {
+    if (!arr || !foo)
+        return ;
+    for (size_t i = 0; i < length; i++){
+        foo(arr[i]);
     }
-    return ;
-}
-
-template <typename Element>
-static void f (Element &e){
-    e++;
-    return;
 }
