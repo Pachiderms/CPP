@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(std::string const _name, int _grade): name(_name){
             grade = _grade;
     }
     catch(std::exception &e){
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cerr << "Exception: " << e.what() << std::endl;
     }
 }
 
@@ -57,7 +57,7 @@ void Bureaucrat::gradeIncrement(){
             grade--;
     }
     catch(std::exception &e){
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cerr << "Exception: " << e.what() << std::endl;
     }
     return ;
 }
@@ -70,7 +70,7 @@ void Bureaucrat::gradeDecrement(){
             grade++;
     }
     catch(std::exception &e){
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cerr << "Exception: " << e.what() << std::endl;
     }
     return ;
 }
@@ -84,6 +84,6 @@ int Bureaucrat::getGrade()const{
 }
 
 std::ostream & operator<<(std::ostream & o, const Bureaucrat& buro){
-    o << buro.getName() << ", " << "bureaucrat grade " << buro.getGrade() <<std::endl;
+    o << buro.getName() << ", " << "bureaucrat grade " << buro.getGrade() << std::endl;
     return o;
 }
