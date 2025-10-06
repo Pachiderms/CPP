@@ -3,24 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:45:18 by tzizi             #+#    #+#             */
-/*   Updated: 2025/09/17 14:16:31 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/06 17:23:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include <iostream>
+// convert.cpp
+// g++ -Wall -Wextra -Werror -std=c++98 convert.cpp -o convert
 
-class ScalarConverter
-{
-    public:
-        ScalarConverter() {};
-        virtual ~ScalarConverter() {};
-        ScalarConverter(const ScalarConverter & other);
-        ScalarConverter & operator=(const ScalarConverter sc);
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <cerrno>
+#include <climits>
+#include <cfloat>
+#include <cmath>
+#include <limits>
 
-        static void convert(const std::string str);
+class ScalarConverter {
+private:
+    ScalarConverter() {} // Not instantiable
+    ~ScalarConverter() {}
+public:
+    static void convert(const std::string& str);
+private:
+    static void printImpossibleCharInt();
+
+    static void printChar(char c);
+
+    static void printInt(long l);
+
+    static void printFloat(double d);
+
+    static void printDouble(double v);
 };
