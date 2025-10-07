@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:45:21 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/06 17:28:24 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/07 13:21:41 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ void ScalarConverter::convert(const std::string & str){
     }
 
     char* endptr = NULL;
-    errno = 0;
     double val = strtod(num_part.c_str(), &endptr);//c_str Returns a pointer to an array that contains a null-terminated sequence of characters
     //Cette fonction, signifiant string to double, permet de transformer une chaîne de caractères
     //contenant la représentation textuelle d'un nombre flottant en une donnée typée double.
