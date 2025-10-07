@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:54:18 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/06 15:17:27 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/07 12:59:31 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ class Array
 			return (this->_array[index]);
 		}
 
-		class	OutOfBoundsException : public std::exception
+		class OutOfBoundsException : public std::exception
         {
 		    public:
 			    virtual const char *what() const throw(){

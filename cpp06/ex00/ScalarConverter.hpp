@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:45:18 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/06 17:23:24 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/07 13:14:50 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
-// convert.cpp
-// g++ -Wall -Wextra -Werror -std=c++98 convert.cpp -o convert
 
 #include <iostream>
 #include <string>
