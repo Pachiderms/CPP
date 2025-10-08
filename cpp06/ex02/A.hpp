@@ -16,6 +16,5 @@
 
 class A: public Base
 {
-    public:
-        virtual ~A(){};
+
 };
