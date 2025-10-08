@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:45:21 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/07 13:21:41 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/08 15:27:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,8 @@ void ScalarConverter::convert(const std::string & str){
     }
 
     //on enleve le f pour le type 'float'
-    //bool isFloat = false;
     std::string num_part = str;
     if (str.size() > 1 && str[str.size() - 1] == 'f') {
-        //isFloat = true;
         num_part = str.substr(0, str.size() - 1);
     }
 
