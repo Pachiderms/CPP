@@ -39,15 +39,15 @@ void identify(Base* p)
 {
     if (A* a = dynamic_cast<A*>(p)){
         (void)a;
-        std::cout << "Identifeied as A." << std::endl;
+        std::cout << "Identified as A." << std::endl;
     }
     else if (B* b = dynamic_cast<B*>(p)){
         (void)b;
-        std::cout << "Identifeied as B." << std::endl;
+        std::cout << "Identified as B." << std::endl;
     }
     else if (C* c = dynamic_cast<C*>(p)){
         (void)c;
-        std::cout << "Identifeied as C." << std::endl;
+        std::cout << "Identified as C." << std::endl;
     }
     else
         std::cout << "WTF IS THIS ?\n";
@@ -57,17 +57,17 @@ void identify(Base& p)
 {
     try{
         dynamic_cast<A&>(p);
-        std::cout << "Identifeied as A." << std::endl;
+        std::cout << "Identified as A." << std::endl;
     }
     catch (...){}
     try{
         dynamic_cast<B&>(p);
-        std::cout << "Identifeied as B." << std::endl;
+        std::cout << "Identified as B." << std::endl;
     }
     catch (...){}
     try{
         dynamic_cast<C&>(p);
-        std::cout << "Identifeied as C." << std::endl;
+        std::cout << "Identified as C." << std::endl;
     }
     catch (...){}
 }
