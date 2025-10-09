@@ -3,33 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:45:21 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/08 15:27:54 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/09 14:25:39 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ScalarConverter.hpp"
 
-// ScalarConverter::ScalarConverter(){
-    
-// }
+ScalarConverter::ScalarConverter(const ScalarConverter & other){*this = other;}
 
-// ScalarConverter::~ScalarConverter(){
-
-// }
-
-// ScalarConverter::ScalarConverter(const ScalarConverter & other){
-//     *this = other;
-// }
-
-
-// ScalarConverter & ScalarConverter::operator=(const ScalarConverter sc){
-//     (void)sc;
-//     return *this;
-// }
-
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter & sc){
+    (void)sc;
+    return *this;
+}
 
 void ScalarConverter::printImpossibleCharInt() {
         std::cout << "char: impossible\n";

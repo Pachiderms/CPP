@@ -49,6 +49,8 @@ void identify(Base* p)
         (void)c;
         std::cout << "Identifeied as C." << std::endl;
     }
+    else
+        std::cout << "WTF IS THIS ?\n";
 }
 
 void identify(Base& p)

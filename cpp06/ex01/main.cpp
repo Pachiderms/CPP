@@ -33,10 +33,13 @@ int main()
     printInfos(&minion);
     printInfos(ptr);
 
+    ptr->attk = 100;
+
     uintptr_t p = Serializer::serialize(ptr);
     Data* e = Serializer::deserialize(p);
 
     printInfos(e);
+    printInfos(&minion);
     std::cout << "p value: " << p << std::endl;
 
     return 0;
