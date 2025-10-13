@@ -27,7 +27,7 @@ class Form
         const int gradeToExec;
     public:
         Form();
-        Form(std::string const _name, int _gardeToSign, int _gradeToExec);
+        Form(std::string const &_name, int _gardeToSign, int _gradeToExec);
         Form(const Form &other);
         Form& operator=(const Form& form);
         ~Form() {}

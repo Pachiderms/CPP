@@ -3,26 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:49:12 by tzizi             #+#    #+#             */
-/*   Updated: 2025/09/30 15:49:13 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/13 17:26:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
+#include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("base_shrubberry", 145, 137){ 
+PresidentialPardonForm::PresidentialPardonForm(const std::string & target):
+    AForm("PresidentialPardonForm", target, 25, 5) {}
+
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & other): AForm(other) {}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const & pr) {
+    AForm::operator=(pr);
+    return *this;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm(target + "_shrubbery", 145, 137){
-    
-}
-// ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other);
-// ShrubberyCreationForm&::operator=(const ShrubberyCreationForm& scf) = delete;
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-    std::ofstream file;
-    file.open(this->getName());
-    file << system("tree");
-    file.close();
-    return ;
+
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+    if (!isSigned())
+        throw AForm::NotSignedException();
+    if (executor.getGrade() > AForm::getGradeToExec())
+        throw AForm::GradeTooLowException();
+    std::cout << getTarget() << " has been pardoned by Manu." << std::endl;
 }

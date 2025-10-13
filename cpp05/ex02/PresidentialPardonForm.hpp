@@ -12,16 +12,15 @@
 
 #pragma once
 
-#include <iostream>
 #include "AForm.hpp"
 
-
-class PresidentialPardonForm : public AForm
-{
+class PresidentialPardonForm : public AForm {
     public:
-        PresidentialPardonForm();
-        virtual ~PresidentialPardonForm();
-        PresidentialPardonForm(std::string target);
-        PresidentialPardonForm(const PresidentialPardonForm &other);
-        PresidentialPardonForm& operator=(const PresidentialPardonForm& ppf) = delete;
+        PresidentialPardonForm(const std::string &target);
+        PresidentialPardonForm(PresidentialPardonForm const & other);
+        PresidentialPardonForm &operator=(PresidentialPardonForm const & pr);
+        virtual ~PresidentialPardonForm(){};
+
+    protected:
+        void execute(Bureaucrat const & executor) const;
 };

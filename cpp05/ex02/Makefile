@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/08 14:46:53 by tzizi             #+#    #+#              #
-#    Updated: 2025/09/30 15:30:33 by tzizi            ###   ########.fr        #
+#    Updated: 2025/10/13 17:11:28 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = forms
 CXX = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS = ${SRC:.cpp=.o}
 
 all: ${NAME}

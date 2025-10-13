@@ -22,19 +22,22 @@ class AForm
 {
     private:
         const std::string name;
+        const std::string target;
         bool signedIndicator;
         const int gradeToSign;
         const int gradeToExec;
     public:
         AForm();
-        AForm(std::string const _name, int _gardeToSign, int _gradeToExec);
+        AForm(std::string const &_name, std::string const &_target,
+            int _gardeToSign, int _gradeToExec);
         AForm(const AForm &other);
-        AForm& operator=(const AForm& form) = delete;
+        AForm& operator=(const AForm& form);
         virtual ~AForm() {}
 
         virtual void execute(Bureaucrat const & executor) const;
         
         std::string getName() const;
+        std::string getTarget()const;
         bool isSigned() const;
 
         void beSigned(const Bureaucrat& buro);

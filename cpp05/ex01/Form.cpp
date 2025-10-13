@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:53:10 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/13 16:25:44 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/13 16:56:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Form::Form() : name("Form"), signedIndicator(false), gradeToSign(150),
     gradeToExec(150){}
 
-Form::Form(std::string const _name, int _gradeToSign, int _gradeToExec): name(_name),
+Form::Form(std::string const &_name, int _gradeToSign, int _gradeToExec): name(_name),
     signedIndicator(false), gradeToSign(_gradeToSign), gradeToExec(_gradeToExec){
     if (gradeToExec < 1 || gradeToSign < 1)
         throw GradeTooHighException();

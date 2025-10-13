@@ -16,7 +16,7 @@
 Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
 }
 
-Bureaucrat::Bureaucrat(std::string const _name, int _grade): name(_name){
+Bureaucrat::Bureaucrat(std::string const &_name, int _grade): name(_name){
     if (_grade > 150)
         throw GradeTooLowException();
     else if (_grade <= 0)

@@ -13,39 +13,40 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("AForm"), signedIndicator(false), gradeToSign(150),
+AForm::AForm() : name("AForm"), target("target"), signedIndicator(false), gradeToSign(150),
     gradeToExec(150){}
 
-AForm::Aorm(std::string const _name, int _gradeToSign, int _gradeToExec): name(_name),
-    signedIndicator(false), gradeToSign(_gradeToSign), gradeToExec(_gradeToExec){
+AForm::AForm(std::string const &_name, std::string const &_target, int _gradeToSign, int _gradeToExec):
+    name(_name), target(_target), signedIndicator(false),
+    gradeToSign(_gradeToSign), gradeToExec(_gradeToExec){
     if (gradeToExec < 1 || gradeToSign < 1)
         throw GradeTooHighException();
     if (gradeToExec > 150 || gradeToSign > 150)
         throw GradeTooLowException();
 }
 
-AForm::AForm(const AForm & other): name(other.name),
+AForm::AForm(const AForm & other): name(other.name), target(other.target),
     gradeToExec(other.gradeToExec),
     gradeToSign(other.gradeToSign),
     signedIndicator(other.signedIndicator){}
 
 AForm& AForm::operator=(const AForm & form){
     if (this != &form)
-    {
         signedIndicator = form.signedIndicator;
-    }
     return *this;
 }
 
-std::string Form::getName()const{return this->name;}
+std::string AForm::getName()const{return this->name;}
 
-int Form::getGradeToSign() const{return gradeToSign;}
+std::string AForm::getTarget()const{return this->target;}
 
-int Form::getGradeToExec() const{return gradeToExec;}
+int AForm::getGradeToSign() const{return gradeToSign;}
 
-bool Form::isSigned() const{return this->signedIndicator;}
+int AForm::getGradeToExec() const{return gradeToExec;}
 
-void Form::beSigned(const Bureaucrat& buro){
+bool AForm::isSigned() const{return this->signedIndicator;}
+
+void AForm::beSigned(const Bureaucrat& buro){
     if (buro.getGrade() <= gradeToSign)
         signedIndicator = true;
     else
