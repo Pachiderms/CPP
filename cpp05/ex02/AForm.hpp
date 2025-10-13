@@ -13,6 +13,9 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+#include <exception>
+
 class Bureaucrat;
 
 class AForm
