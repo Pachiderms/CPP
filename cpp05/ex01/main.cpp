@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:58:31 by tzizi             #+#    #+#             */
-/*   Updated: 2025/09/26 13:16:52 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/13 16:21:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,44 @@
 
 int main()
 {
-    Bureaucrat buro("Test", 250);
-
     Bureaucrat plus("plus", 99);
     std::cout << plus;
 
-    Bureaucrat minus("minus", 52);
+    Bureaucrat minus("minus", 50);
     std::cout << minus;
     
-    Bureaucrat failSign("Fail", 101);
+    try{
+        Form f("My Form", 200, 50);
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
 
-    Form form("My Form", 100, 50);
-    std::cout << form;
-    Form cp(form);
+    Form *form = new Form();
+    Form cp(*form);
     std::cout << cp;
 
-    failSign.signForm(form);
-    plus.signForm(form);
-    minus.signForm(form);
+    plus.signForm(*form);
+    plus.signForm(cp);
+    minus.signForm(*form);
+    minus.signForm(cp);
+
+    Form hf("HardForm", 50, 50);
+
+    try{
+        plus.signForm(hf);
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
+
+    try{
+        minus.signForm(hf);
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
     
+    delete form;
     return 0;
 }

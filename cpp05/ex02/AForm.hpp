@@ -19,7 +19,7 @@ class AForm
 {
     private:
         const std::string name;
-        bool signedIndicator=false;
+        bool signedIndicator;
         const int gradeToSign;
         const int gradeToExec;
     public:
@@ -39,36 +39,22 @@ class AForm
         int getGradeToSign() const;
         int getGradeToExec() const;
 
-        class AlreadySignedException : public std::exception
-        {
-            public:
-                virtual const char* what() const throw(){
-                    return ("AForm Already Signed Exception.");
-                }
-        };
-
         class NotSignedException : public std::exception
         {
             public:
-                virtual const char* what() const throw(){
-                    return ("AForm Not Signed Exception.");
-                }
+                virtual const char* what() const throw();
         };
 
         class GradeTooHighException : public std::exception
         {
             public:
-                virtual const char* what() const throw(){
-                    return ("Grade Too High To Sign AForm Exception.");
-                }
+                virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                virtual const char* what() const throw(){
-                    return ("Grade Too Low To Sign AForm Exception.");
-                }
+                virtual const char* what() const throw();
         };
         
 };

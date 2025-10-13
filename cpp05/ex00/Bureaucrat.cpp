@@ -16,74 +16,50 @@ Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
 }
 
 Bureaucrat::Bureaucrat(std::string const _name, int _grade): name(_name){
-    try{
-        if (_grade > 150)
-        {
-            grade = 150;
-            throw GradeTooLowException();
-        }
-        else if (_grade <= 0)
-        {
-            grade = 1;
-            throw GradeTooHighException();
-        }
-        else
-            grade = _grade;
-    }
-    catch(std::exception &e){
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
+    if (_grade > 150)
+        throw GradeTooLowException();
+    else if (_grade <= 0)
+        throw GradeTooHighException();
+    else
+        grade = _grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat & other){
-    (std::string)this->name = (std::string)other.name;
-    this->grade = other.grade;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat & other): name(other.name), grade(other.grade){}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& buro){
     if (this != &buro)
-    {
-        (std::string)this->name = buro.getName();
         this->grade = buro.grade;
-    }
+
     return *this;
 }
 
 void Bureaucrat::gradeIncrement(){
-    try{
-        if (grade - 1 <= 0)
+    if (grade <= 1)
             throw GradeTooHighException();
-        else
-            grade--;
-    }
-    catch(std::exception &e){
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-    return ;
+    else
+        grade--;
 }
 
 void Bureaucrat::gradeDecrement(){
-    try{
-        if (grade + 1 > 150)
+    if (grade >= 150)
             throw GradeTooLowException();
-        else
-            grade++;
-    }
-    catch(std::exception &e){
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-    return ;
+    else
+        grade++;
 }
 
-std::string Bureaucrat::getName()const{
-    return this->name;
-}
+std::string Bureaucrat::getName()const{return this->name;}
 
-int Bureaucrat::getGrade()const{
-    return this->grade;
-}
+int Bureaucrat::getGrade()const{return this->grade;}
 
 std::ostream & operator<<(std::ostream & o, const Bureaucrat& buro){
     o << buro.getName() << ", " << "bureaucrat grade " << buro.getGrade() << std::endl;
     return o;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw(){
+    return "Bureaucrat: Grade Too High Exception.";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw(){
+    return "Bureaucrat: Grade Too Low Exception.";
 }

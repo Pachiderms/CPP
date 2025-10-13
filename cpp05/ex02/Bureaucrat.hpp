@@ -14,7 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-class AForm;
+class Form;
 
 class Bureaucrat
 {
@@ -28,26 +28,23 @@ class Bureaucrat
         Bureaucrat& operator=(const Bureaucrat & buro);
         ~Bureaucrat() {}
 
-        void signForm(AForm & AForm);
         void gradeIncrement();
         void gradeDecrement();
         int getGrade() const;
         std::string getName() const;
 
+        void signForm(Form & form);
+
         class GradeTooHighException : public std::exception
         {
             public:
-                virtual const char* what() const throw(){
-                    return ("Grade Too High Exception.");
-                }
+                virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                virtual const char* what() const throw(){
-                    return ("Grade Too Low Exception.");
-                }
+                virtual const char* what() const throw();
         };
 };
 

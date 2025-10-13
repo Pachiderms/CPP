@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
@@ -19,14 +19,14 @@ class Form
 {
     private:
         const std::string name;
-        bool signedIndicator=false;
+        bool signedIndicator;
         const int gradeToSign;
         const int gradeToExec;
     public:
         Form();
         Form(std::string const _name, int _gardeToSign, int _gradeToExec);
         Form(const Form &other);
-        Form& operator=(const Form& form) = delete;
+        Form& operator=(const Form& form);
         ~Form() {}
         
         std::string getName() const;
@@ -37,28 +37,16 @@ class Form
         int getGradeToSign() const;
         int getGradeToExec() const;
 
-        class AlreadySignedException : public std::exception
-        {
-            public:
-                virtual const char* what() const throw(){
-                    return ("Form Already Signed Exception.");
-                }
-        };
-
         class GradeTooHighException : public std::exception
         {
             public:
-                virtual const char* what() const throw(){
-                    return ("Grade Too High To Sign Form Exception.");
-                }
+                virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                virtual const char* what() const throw(){
-                    return ("Grade Too Low To Sign Form Exception.");
-                }
+                virtual const char* what() const throw();
         };
         
 };

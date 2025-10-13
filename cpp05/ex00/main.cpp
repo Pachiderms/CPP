@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:58:31 by tzizi             #+#    #+#             */
-/*   Updated: 2025/09/17 13:32:15 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/13 15:44:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,59 @@
 
 int main()
 {
-    Bureaucrat buro("Test", 250);
+    try{
+        Bureaucrat buro("Test", 250);
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
 
-    Bureaucrat plus("plus", 0);
+    try{
+        Bureaucrat plus("plus", 0);
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
 
-    std::cout << plus;
+    Bureaucrat *minus = new Bureaucrat();
+    std::cout << *minus;
 
-    Bureaucrat minus("minus", 150);
-    std::cout << minus;
-    minus.gradeIncrement();
-    std::cout << minus;
-    minus.gradeDecrement();
-    std::cout << minus;
-    minus.gradeDecrement();
-    std::cout << minus;
-    minus.gradeDecrement();
-    std::cout << minus;
+    try{
+        minus->gradeIncrement();
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
+    std::cout << *minus;
+
+    try{
+        minus->gradeDecrement();
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
+    std::cout << *minus;
+
+    try{
+        minus->gradeDecrement();
+    }
+    catch(Bureaucrat::GradeTooHighException & e){
+        std::cerr << "Trying to catch GTH Exception: " << e.what() << std::endl;
+    }
+    catch(Bureaucrat::GradeTooLowException & e){
+        std::cerr << "catching good error: " << e.what() << std::endl;
+    }
+    std::cout << *minus;
+
+    try{
+        minus->gradeIncrement();
+    }
+    catch(Bureaucrat::GradeTooLowException & e){
+        std::cerr << e.what() << std::endl;
+    }
+    std::cout << *minus;
+
+    delete minus;
 
     return 0;
 }
