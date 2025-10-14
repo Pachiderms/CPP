@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/08 14:46:53 by tzizi             #+#    #+#              #
-#    Updated: 2025/10/13 17:11:28 by marvin           ###   ########.fr        #
+#    Updated: 2025/10/14 11:43:11 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ ${NAME}: ${OBJS}
 	${CXX} ${CPPFLAGS} ${OBJS}	-o ${NAME}
 
 clean:
-	rm -f *.o
+	rm -f *.o nowhere_shrubbery
 
 fclean: clean
 	rm -f ${NAME}
