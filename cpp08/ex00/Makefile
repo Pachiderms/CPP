@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = containers
+NAME = easyfind
 
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
