@@ -14,7 +14,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include <cstring>
 
 Intern& Intern::operator=(Intern const & other){(void)other; return *this;}
 
