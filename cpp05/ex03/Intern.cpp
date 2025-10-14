@@ -32,6 +32,6 @@ AForm* Intern::makeForm(std::string const & type, std::string const & _target)co
             return form;
         }
     }
-    std::cout << "Form: " << type << "\" does not exist" << std::endl;
+    std::cout << "Form: " << type << " does not exist." << std::endl;
     return NULL;
 }

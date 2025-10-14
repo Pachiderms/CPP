@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:27:13 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/14 12:44:43 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/14 12:48:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
     AForm* s_failed = intern->makeForm("Shrubbery", "nowhere");
     AForm* r_failed = intern->makeForm("robotomy", "nowhere");
     AForm* r = intern->makeForm("robotomy request", "someone");
-    AForm* p_failed = intern->makeForm("Presidential pardon", "nowhere");
+    AForm* p_failed = intern->makeForm("ncanocnanca", "nowhere");
     AForm* p = intern->makeForm("presidential pardon", "Donald");
     std::cout << *s << *r << *p << std::endl;
     std::cout << boss << worker << sbire << std::endl;
