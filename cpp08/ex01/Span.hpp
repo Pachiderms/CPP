@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 14:17:55 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/10 15:37:38 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/14 14:38:44 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Span
         ~Span(){};
         Span(unsigned int N);
         Span(const Span & other);
-        Span& operator=(const Span & s);
+        Span& operator=(const Span & other);
 
     public:
         size_t getsize() const;
