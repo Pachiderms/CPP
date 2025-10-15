@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 14:17:55 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/14 14:38:44 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/15 14:52:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 #include <algorithm>
 #include <iostream>
-#include <list>
+#include <vector>
 #include <ctime>
 
 class Span
 {
     private:
         Span(){};
-        std::list<int> _l;
+        std::vector<int> _v;
         unsigned int _N;
 
     public:
@@ -31,19 +31,23 @@ class Span
         Span& operator=(const Span & other);
 
     public:
-        size_t getsize() const;
-        int getVal(size_t i)const;
-
         void addNumber(int n);
+        template <typename T>
+        void addRange(T first, T last)
+        {
+            if (_v.size() + std::distance(first, last) > _N)
+                throw OverflowException();
+            _v.insert(_v.end(), first, last);
+        }
     
-        int shortestSpan();
-        int longestSpan();
+        int shortestSpan()const;
+        int longestSpan()const;
 
         class OverflowException : public std::exception
         {
             public:
                 virtual const char* what() const throw(){
-                    return ("Container is full!");
+                    return ("Container can't add value(s) because of it's capacity!");
                 }
         };
 };

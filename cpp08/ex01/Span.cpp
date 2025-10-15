@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 14:27:31 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/14 14:55:29 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/15 15:11:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,90 +14,45 @@
 
 Span::Span(unsigned int N):_N(N){}
 
-Span::Span(const Span& other):_N(other._N){
-    if (!this->_l.empty())
-        this->_l.clear();
-    this->_l.resize(other._N);
-    std::list<int>::const_iterator it;
-    it = other._l.begin();
-    for (it = other._l.begin(); it != other._l.end(); it++){
-        this->_l.push_back(*it);
-    }
+Span::Span(const Span& other){
+    *this = other;
 }
 
 Span& Span::operator=(const Span& other)
 {
     if (this != &other){
-        this->_N = other._N;
-        if (!this->_l.empty())
-            this->_l.clear();
-        this->_l.resize(other._N);
-        std::list<int>::const_iterator it;
-        for (it = other._l.begin(); it != other._l.end(); it++){
-            this->_l.push_back(*it);
-        }
+        _N = other._N;
+        _v = other._v;
     }
-
     return *this;
 }
 
 void Span::addNumber(int n){
-    if (_l.size() >= _N){
+    if (_v.size() >= _N){
         throw OverflowException();
     }
     else
-        _l.push_back(n);
+        _v.push_back(n);
 }
 
-size_t Span::getsize()const{
-    return this->_l.size();
-}
-
-int Span::getVal(size_t i)const{
-    size_t j = 0;
-    std::list<int>::const_iterator it;
-    it = this->_l.begin();
-    for (it = this->_l.begin(); it != this->_l.end(); it++){
-        j++;
-        if (j == i)
-            return *it;
+int Span::shortestSpan()const{
+    if (_v.size() < 2)
+        return -1;
+    std::vector<int> sorted = _v;
+    std::sort(sorted.begin(), sorted.end());
+    int span = sorted[1] - sorted[0];
+    for (unsigned int i=1; i < sorted.size(); i++){
+        if (sorted[i] - sorted[i - 1] < span)
+            span = sorted[i] - sorted[i - 1];
     }
-    return -1;
+    return span;
 }
 
-int Span::shortestSpan(){
-    std::list<int> l;
-    std::list<int>::const_iterator it;
-    it = _l.begin();
-    for (it = _l.begin(); it != _l.end(); it++){
-        l.push_back(*it);
-    }
-    l.unique();
-    l.sort();
-    
-    int first = l.front();
-    l.pop_front();
-    int sec = l.front();
+int Span::longestSpan()const{
+    if (_v.size() < 2)
+        return -1;
 
-    return sec - first;
-}
-
-int Span::longestSpan(){
-    std::list<int> l;
-    std::list<int>::const_iterator it;
-    it = _l.begin();
-    for (it = _l.begin(); it != _l.end(); it++){
-        l.push_back(*it);
-    }
-    l.unique();
-    l.sort();
-
-    //for(std::list<int>::const_iterator i = l.begin();i !=l.end();i++) std::cout << *i << std::endl;
-    
-    const int first = l.front();
-    const int last = l.back();
-
-    //std::cout << "Longest span first=" << first << "Last=" << last << std::endl;
-
-    return last - first;
+    int min = *std::min_element(_v.begin(), _v.end());
+    int max = *std::max_element(_v.begin(), _v.end());
+    return max - min;
 }
