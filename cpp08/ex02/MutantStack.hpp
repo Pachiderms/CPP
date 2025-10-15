@@ -14,27 +14,24 @@
 
 #include <algorithm>
 #include <iostream>
-#include <deque>
 #include <stack>
-#include <vector>
-#include <ctime>
 
-template <class T>
-class MutantStack
+template <typename T>
+class MutantStack : public std::stack<T>
 {
     public:
-        MutantStack();
-        ~MutantStack(){};
-        MutantStack(unsigned int N);
-        MutantStack(const MutantStack & other);
-        MutantStack& operator=(const MutantStack & other);
+        MutantStack() {}
+        ~MutantStack(){}
+        MutantStack(const MutantStack & other) { *this = other; }
+        MutantStack& operator=(const MutantStack & other){
+            if (this != *other){
+                std::stack<T>::operator=(other);
+            }
+            return *this;
+        }
 
-        bool empty()const;
-        size_t size()const;
+        typedef typename std::stack<T>::container_type::iterator iterator;
 
-        void pop();
-        void push(const T& value);
-
-        T& top();
-        const T& top()const;
+        iterator begin() { return this->c.begin(); }
+        iterator end() { return this->c.end(); }
 };

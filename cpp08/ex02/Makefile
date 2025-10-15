@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = converter
+NAME = mutantstack
 
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ScalarConverter.cpp \
+SRC = main.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
