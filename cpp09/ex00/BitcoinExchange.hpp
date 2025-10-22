@@ -34,14 +34,19 @@ class BitcoinExchange
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &other);
         BitcoinExchange &operator=(const BitcoinExchange &other);
-        ~BitcoinExchange();
+        ~BitcoinExchange(){};
 
-        void loadDatabase(const std::string &filename);
-        void processInput(const std::string &filename) const;
+        void loadDatabase(const std::string &file);
 
         class InvalidFileException : public std::exception
         {
             public:
                 virtual const char* what() const throw();
+        };
+
+        class InvalidFormatException : public std::runtime_error
+        {
+            public:
+                InvalidFormatException(const std::string& err) : std::runtime_error(err){}
         };
 };

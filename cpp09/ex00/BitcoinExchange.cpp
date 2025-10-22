@@ -3,105 +3,109 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 16:24:09 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/15 16:24:09 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 13:14:54 by tzizi             #+#    #+#             */
+/*   Updated: 2025/10/22 15:39:35 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <ctime>
+#include "limits"
 
-BitcoinExchange::BitcoinExchange(){}
+BitcoinExchange::BitcoinExchange()
+{
+    std::ifstream file;
 
-BitcoinExchange::~BitcoinExchange() {}
+    file.open("data.csv");
+    if (!file){
+        throw InvalidFileException();
+    }
+    std::string line;
+    getline(file, line, '\n');
+    while (getline(file, line, '\n'))
+    {
+        std::string date = line.substr(0, 10);
+        float mult = atof(line.substr(11).c_str());
+        _data.insert(std::pair<std::string, float>(date, mult));
+    }
+}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { *this = other; }
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
+{
+    this->_data = other._data;
+}
 
-BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other){
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
+{
     if (this != &other)
-        _data = other._data;
+        this->_data = other._data;
     return *this;
 }
 
-bool BitcoinExchange::isValidDate(const std::string &date)const{
-    if (date.size() != 10 || date[4] != '-' || date[7] != '-')
-        return false;
-    int y = atoi(date.substr(0, 4).c_str());
-    int m = atoi(date.substr(5, 2).c_str());
-    int d = atoi(date.substr(8, 2).c_str());
-    if (y < 2009 || m < 1 || m > 12 || d < 1 || d > 31)
-        return false;
-    return true;
-}
+void BitcoinExchange::loadDatabase(const std::string &filename)
+{
+    std::ifstream file;
 
-bool BitcoinExchange::isValidValue(const std::string &value) const {
-    char *end;
-    double val = std::strtod(value.c_str(), &end);
-    if (*end != '\0' || val < 0 || val > 1000)
-        return false;
-    return true;
-}
-
-void BitcoinExchange::loadDatabase(const std::string &filename) {
-    std::ifstream file(filename.c_str());
-    if (!file.is_open())
+    file.open(filename.c_str());
+    if (!file){
         throw InvalidFileException();
-
-    std::string line;
-    std::getline(file, line); // skip header
-    while (std::getline(file, line)) {
-        std::stringstream ss(line);
-        std::string date, value;
-        if (!std::getline(ss, date, ',') || !std::getline(ss, value))
-            continue;
-        _data[date] = static_cast<float>(atof(value.c_str()));
     }
-    file.close();
-}
-
-void BitcoinExchange::processInput(const std::string &filename) const {
-    std::ifstream file(filename.c_str());
-    if (!file.is_open())
-        throw InvalidFileException();
-
     std::string line;
-    std::getline(file, line); // skip header
-    while (std::getline(file, line)) {
-        std::stringstream ss(line);
-        std::string date, value;
-        if (!std::getline(ss, date, '|') || !std::getline(ss, value)) {
-            std::cerr << "Error: bad input => " << line << std::endl;
-            continue;
-        }
-        date.erase(date.find_last_not_of(" \t") + 1);
-        value.erase(0, value.find_first_not_of(" \t"));
+    getline(file, line, '\n');
+    // std::cout << line << std::endl;
+    while (getline(file, line, '\n'))
+    {
+        // std::cout << line << std::endl;
+        try{
+            if (line.length() < 14)
+                throw InvalidFormatException("bad input => " + line);
+            if (line[4] != '-' || line[7] != '-' || line[11] != '|')
+                throw InvalidFormatException("bad input => " + line);
+            std::string date = line.substr(0, 10);
+            // std::cout << "date: " << date << std::endl;
+            // float y=atof(date.substr(0, 4).c_str()), m=atof(date.substr(5, 2).c_str())
+            //     , d=atof(date.substr(8, 2).c_str());
+            // if (y < atof(_data.begin()->first.substr(0, 4).c_str())
+            //     || y > y < atof((_data.end()--)->first.substr(0, 4).c_str())
+            //     || m < 0 || d < 0 || m > 12 || d > 12){
+            //     throw InvalidFormatException();
+            // }
+            float val = atof(line.substr(13).c_str());
+            if (val < 0)
+                throw InvalidFormatException("not a positive number.");
+            // std::cout << line.substr(13) << "." << std::endl;
+            // std::cout << "val: " << val << std::endl;
 
-        if (!isValidDate(date)) {
-            std::cerr << "Error: bad input => " << date << std::endl;
-            continue;
-        }
-        if (!isValidValue(value)) {
-            std::cerr << "Error: invalid value => " << value << std::endl;
-            continue;
-        }
+            std::map<std::string, float>::iterator it;
+            it = _data.find(date);
 
-        double val = atof(value.c_str());
-        std::map<std::string, float>::const_iterator it = _data.lower_bound(date);
-        if (it == _data.end() || it->first != date) {
-            if (it == _data.begin()) {
-                std::cerr << "Error: no earlier data for date => " << date << std::endl;
-                continue;
+            if (val * it->second > std::numeric_limits<int>::max())
+                throw InvalidFormatException("too large number.");
+                
+            if (it == _data.end())
+            {
+                it = _data.upper_bound(date);
+                it--;
+                // std::cout << "lower bound: " << it->first << std::endl;
+                // std::cout << it->second << std::endl;
+                std::cout << date << " => " << val << " = "
+                    <<  val * it->second << std::endl;
+            }else{
+                // std::cout << "found: " << it->first << std::endl;
+                // std::cout << it->second << std::endl;
+                std::cout << date << " => " << val << " = "
+                    <<  val * it->second << std::endl;
             }
-            --it;
+        }catch(const std::exception& e){
+            std::cout << "Error: " << e.what() << std::endl;
         }
-
-        double result = val * it->second;
-        std::cout << date << " => " << val << " = " << result << std::endl;
     }
+    
 }
 
-const char* BitcoinExchange::InvalidFileException::what() throw(){
-    return "Could not open file. ";
+
+const char* BitcoinExchange::InvalidFileException::what() const throw()
+{
+    return "BitcoinExchange: Error: Invalid File Exception.";
 }
