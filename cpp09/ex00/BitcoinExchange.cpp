@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:14:54 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/22 15:39:35 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/22 16:27:21 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,11 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
                 throw InvalidFormatException("bad input => " + line);
             std::string date = line.substr(0, 10);
             // std::cout << "date: " << date << std::endl;
-            // float y=atof(date.substr(0, 4).c_str()), m=atof(date.substr(5, 2).c_str())
-            //     , d=atof(date.substr(8, 2).c_str());
-            // if (y < atof(_data.begin()->first.substr(0, 4).c_str())
-            //     || y > y < atof((_data.end()--)->first.substr(0, 4).c_str())
-            //     || m < 0 || d < 0 || m > 12 || d > 12){
-            //     throw InvalidFormatException();
-            // }
+            float m=atof(date.substr(5, 2).c_str())
+                , d=atof(date.substr(8, 2).c_str());
+            if (m < 0 || d < 0 || m > 12 || d > 12){
+                throw InvalidFormatException("not found in database: " + date);
+            }
             float val = atof(line.substr(13).c_str());
             if (val < 0)
                 throw InvalidFormatException("not a positive number.");
