@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easyfind
+NAME = RPN
 
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = main.cpp \
+SRC = main.cpp RPN.cpp \
 
 OBJS = ${SRC:.cpp=.o}
 
