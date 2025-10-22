@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:14:54 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/22 16:27:21 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/22 16:31:14 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,20 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
 
             std::map<std::string, float>::iterator it;
             it = _data.find(date);
-
-            if (val * it->second > std::numeric_limits<int>::max())
-                throw InvalidFormatException("too large number.");
                 
             if (it == _data.end())
             {
-                it = _data.upper_bound(date);
+                it = _data.lower_bound(date);
                 it--;
+                if (val * it->second > std::numeric_limits<int>::max())
+                    throw InvalidFormatException("too large number.");
                 // std::cout << "lower bound: " << it->first << std::endl;
                 // std::cout << it->second << std::endl;
                 std::cout << date << " => " << val << " = "
                     <<  val * it->second << std::endl;
             }else{
+                if (val * it->second > std::numeric_limits<int>::max())
+                    throw InvalidFormatException("too large number.");
                 // std::cout << "found: " << it->first << std::endl;
                 // std::cout << it->second << std::endl;
                 std::cout << date << " => " << val << " = "
