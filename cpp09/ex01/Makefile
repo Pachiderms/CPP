@@ -32,4 +32,16 @@ fclean: clean
 
 re: fclean all
 
+tests:
+	@echo "test 1: "
+	./RPN "89*9-9-9-4-1+"
+	@echo "\ntest 2: "
+	./RPN "77*7-"
+	@echo "\ntest 3: "
+	./RPN "12*2/2*24-+"
+	@echo "\ntest 4: "
+	 ./RPN "(1 + 1)"
+	@echo "\ntest 5: "
+	./RPN "12*2/2*2456-+"
+
 .PHONY: all re clean fclean

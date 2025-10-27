@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:50:17 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/22 18:11:59 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/27 16:36:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,62 +21,74 @@ RPN& RPN::operator=(const RPN& other)
     return *this;
 }
 
+bool isSign(char c)
+{
+    return c == '+' || c == '-' || c == '*' || c == '/';
+}
+
 void RPN::calculate(const std::string& op)
 {
     std::string signs = "+-/*";
     try{
         for (size_t i=0; i < op.length(); i++){
-            // std::cout << signs.find(op[i], 0) << std::endl;
             if (signs.find(op[i], 0) == (size_t)-1 && isdigit(op[i]) <= 0){
                 if (!_op.empty())
                     _op.clear();
-                throw MyException("bad input: ");
+                throw BadInputException();
             }
-            _op.push_back(op[i]);
-            // std::cout << " " << _op.front() << std::endl;
+        _op.push_back(op[i]);
         }
-    }catch(std::exception& e){
-        std::cerr << e.what() << std::endl;
-    }
-    
-    try{
-        // std::cout << "Calculation.\n";
-        while (_op.size() >= 3)
+        std::deque<char> res;
+        while (!_op.empty())
         {
             int a, b;
-            a = _op.front() - '0';
+            char sign;
+            while (!isSign(_op.front()) && !_op.empty())
+            {
+                res.push_back(_op.front());
+                _op.pop_front();
+            }
+            res.push_back(_op.front());
             _op.pop_front();
-            b = _op.front() - '0';
-            _op.pop_front();
-            // std::cout << "a: "<< a  << " b: " << b << " sign: "
-            //     << _op.front() << std::endl;
-            switch (_op.front())
+            sign = res.back();
+            res.pop_back();
+            b = res.back() - '0';
+            res.pop_back();
+            a = res.back() - '0';
+            res.pop_back();
+            std::cout << "a: "<< a  << " b: " << b << " sign: "
+                 << sign << std::endl;
+            if (isdigit((char)a) < 0 || isdigit((char)b) < 0)
+                throw BadInputException();
+            switch (sign)
             {
                 case '+':
-                    _op.pop_front();
-                    _op.push_front((a + b) + '0');
+                    res.push_back((a + b) + '0');
                     break;
                 case '-':
-                    _op.pop_front();
-                    _op.push_front((a - b) + '0');
+                    res.push_back((a - b) + '0');
                     break;
                 case '/':
-                    _op.pop_front();
-                    _op.push_front((a / b) + '0');
+                    res.push_back((a / b) + '0');
                     break;
                 case '*':
-                    _op.pop_front();
-                    _op.push_front((a * b) + '0');
+                    res.push_back((a * b) + '0');
                     break;
                 default:
                     break;
             }
-            // for (size_t i=0;i<_op.size();i++){
-            //     std::cout << " " << _op[i] << std::endl;
-            // }
         }
-        std::cout << "Result: " << _op.front() - '0' << std::endl;
-    }catch(std::exception& e){
+        // for (size_t i=0; i < res.size();i++)
+        //     std::cout << " " << res[i] << "-> int: " << res[i] - '0';
+        if (res.size() > 1)
+            throw BadInputException();
+        std::cout << "Result: " << res.front() - '0' << std::endl;
+    }catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
     }
+}
+
+const char* RPN::BadInputException::what() const throw()
+{
+    return "Error: bad input.";
 }

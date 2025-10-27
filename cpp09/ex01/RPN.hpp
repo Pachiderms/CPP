@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:44:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/22 17:25:00 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/27 15:54:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ class RPN
     public:
         void calculate(const std::string &op);
 
-        class MyException : std::runtime_error{
+         class BadInputException : public std::exception
+        {
             public:
-                MyException(const std::string& err) : std::runtime_error(err){}
+                const char* what() const throw();
         };
 };

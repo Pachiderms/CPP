@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:14:54 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/22 16:31:14 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/10/27 15:46:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
                     <<  val * it->second << std::endl;
             }
         }catch(const std::exception& e){
-            std::cout << "Error: " << e.what() << std::endl;
+            std::cerr << "Error: " << e.what() << std::endl;
         }
     }
     
