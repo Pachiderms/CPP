@@ -40,10 +40,14 @@ tests:
 	@echo "\ntest 3: "
 	./RPN "1 2 * 2 / 2 * 2 4 - +"
 	@echo "\ntest 4: "
-	 ./RPN "(1 + 1)"
-	@echo "\ntest 5: "
-	./RPN "1 2 * 2 / 2 * 2 4 5 6 - +"
+	./RPN "1 -2 *"
 	@echo "\ntest 5: "
 	./RPN "1 5 * 8 7 * 6 / + 4 - 3 7 * +"
+	@echo "\nTesting Bad Inputs:\n\ntest 6: "
+	 ./RPN "(1 + 1)"
+	@echo "\ntest 7: "
+	./RPN "1 2 * 2 / 2 * 2 4 5 6 - +"
+	@echo "\ntest 8: "
+	./RPN "1 2- * 2 / 2 * 2 4 5 6 - +"
 
 .PHONY: all re clean fclean
