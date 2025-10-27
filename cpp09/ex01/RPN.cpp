@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:50:17 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/27 16:36:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/27 16:43:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void RPN::calculate(const std::string& op)
     std::string signs = "+-/*";
     try{
         for (size_t i=0; i < op.length(); i++){
-            if (signs.find(op[i], 0) == (size_t)-1 && isdigit(op[i]) <= 0){
+            if ((signs.find(op[i], 0) == (size_t)-1 && isdigit(op[i]) <= 0) 
+                || (isdigit(op[i]) && (op[i] - '0') >= 10) || op[i] != ' '){
                 if (!_op.empty())
                     _op.clear();
                 throw BadInputException();
@@ -58,7 +59,7 @@ void RPN::calculate(const std::string& op)
             res.pop_back();
             std::cout << "a: "<< a  << " b: " << b << " sign: "
                  << sign << std::endl;
-            if (isdigit((char)a) < 0 || isdigit((char)b) < 0)
+            if (isdigit((char)a) <= 0 || isdigit((char)b) <= 0)
                 throw BadInputException();
             switch (sign)
             {
