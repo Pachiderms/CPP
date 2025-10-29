@@ -6,20 +6,20 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:44:09 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/27 15:54:05 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/29 17:32:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <sstream>
 #include <algorithm>
 #include <deque>
+#include <stack>
 
 class RPN
 {
-    private:
-        std::deque<char> _op;
     public:
         RPN(){}
         ~RPN(){}
@@ -27,9 +27,9 @@ class RPN
         RPN& operator=(const RPN& other);
     
     public:
-        void calculate(const std::string &op);
+        static void calculate(const std::string &op);
 
-         class BadInputException : public std::exception
+        class BadInputException : public std::exception
         {
             public:
                 const char* what() const throw();

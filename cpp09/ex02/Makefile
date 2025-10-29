@@ -15,7 +15,7 @@ NAME = PmergeME
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp \
+SRC = main.cpp PmergeMe.cpp \
 
 OBJS = ${SRC:.cpp=.o}
 
