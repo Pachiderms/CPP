@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:50:17 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/29 17:32:49 by marvin           ###   ########.fr       */
+/*   Updated: 2025/11/12 16:53:06 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,78 +16,64 @@ RPN::RPN(const RPN& other) { (void)other; }
 
 RPN& RPN::operator=(const RPN& other){ (void)other; return *this; }
 
-bool isSign(char c){ return c == '+' || c == '-' || c == '*' || c == '/'; }
+void RPN::process(std::stack<char> &s)
+{
+    if (s.size() < 3)
+        return;
+
+    if (std::string("+-/*").find(s.top(), 0) == std::string::npos)
+        return;
+
+    char sign = s.top();
+    s.pop();
+    int b = s.top() - '0';
+    s.pop();
+    int  a = s.top() - '0';
+    s.pop();
+
+    switch (sign)
+    {
+        case '+':
+            s.push((a + b) + '0');
+            break;
+        case '-':
+            s.push((a - b) + '0');
+            break;
+        case '/':
+            if (b == 0)
+                throw BadInputException();
+            s.push((a / b) + '0');
+            break;
+        case '*':
+            s.push((a * b) + '0');
+            break;
+        default:
+            break;
+    }
+}
 
 void RPN::calculate(const std::string& op)
 {
     std::stringstream ss(op);
     std::string token;
-    // while (ss >> tmp)
-    //     std::cout << tmp << std::endl;
-    // return;
-    std::stack<char> _op;
+    std::stack<char> _s;
     while (ss >> token){
-        if (token.size() == 2 && token[0] == '-' && isdigit(token[1]))
-            _op.push(((tmp[1] - '0') * -1) + '0');
-        else if ((token.size() == 1 || (std::string("+-/*").find(tmp[0], 0) != std::string::npos && isdigit(tmp[0]) <= 0))){
+        if (token.size() == 2 && token[0] == '-' && isdigit(token[1])){
+            _s.push(((token[1] - '0') * -1) + '0');
+        }
+        else if (token.size() != 1
+            || ((std::string("+-/*").find(token[0], 0) != std::string::npos)
+            && token.size() != 1) || isdigit(token[0] == 0)){
             throw BadInputException();
         }
-        else
-            _op.push(tmp[0]);
-    }
-        // for (size_t i=0; i < _op.size();i++)
-        //     std::cout << " " << _op[i] << "-> int: " << _op[i] - '0';
-        // std::cout << "\n";
-    std::deque<char> res;
-    while (!_op.empty())
-    {
-        int a, b;
-        char sign;
-        while (!isSign(_op.front()) && !_op.empty())
-        {
-            res.push_back(_op.front());
-            _op.pop_front();
+        else{
+            _s.push(token[0]);
         }
-        res.push_back(_op.front());
-        _op.pop_front();
-            // for (size_t i=0; i < res.size();i++)
-            //     std::cout << " " << res[i] << "-> int: " << res[i] - '0';
-            // std::cout << "res\n";
-        sign = res.back();
-        res.pop_back();
-        b = res.back() - '0';
-        res.pop_back();
-        a = res.back() - '0';
-        res.pop_back();
-            // std::cout << "a: "<< a  << " b: " << b << " sign: "
-            //      << sign << std::endl;
-        if (isdigit((char)a) < 0 || isdigit((char)b) < 0)
-            throw BadInputException();
-        switch (sign)
-        {
-            case '+':
-                res.push_back((a + b) + '0');
-                break;
-            case '-':
-                res.push_back((a - b) + '0');
-                break;
-            case '/':
-                if (b == 0)
-                    throw BadInputException();
-                res.push_back((a / b) + '0');
-                break;
-            case '*':
-                res.push_back((a * b) + '0');
-                break;
-            default:
-                break;
-        }
+        RPN::process(_s);
     }
-        // for (size_t i=0; i < res.size();i++)
-        //     std::cout << " " << res[i] << "-> int: " << res[i] - '0';
-    if (res.size() > 1)
+    if (_s.size() != 1)
         throw BadInputException();
-    std::cout << "Result: " << res.front() - '0' << std::endl;
+    std::cout << _s.top() - '0' << std::endl;
 }
 
 const char* RPN::BadInputException::what() const throw()

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:14:54 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/27 15:46:38 by marvin           ###   ########.fr       */
+/*   Updated: 2025/11/12 15:53:05 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,17 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
                 throw InvalidFormatException("bad input => " + line);
             std::string date = line.substr(0, 10);
             // std::cout << "date: " << date << std::endl;
-            float m=atof(date.substr(5, 2).c_str())
+            float y=atof(date.substr(0, 4).c_str())
+                , m=atof(date.substr(5, 2).c_str())
                 , d=atof(date.substr(8, 2).c_str());
-            if (m < 0 || d < 0 || m > 12 || d > 12){
+            if ((y <= 2009 && d < 02) || y < 2009 || m < 0 || d < 0 || m > 12 || d > 31){
                 throw InvalidFormatException("not found in database: " + date);
             }
             float val = atof(line.substr(13).c_str());
             if (val < 0)
                 throw InvalidFormatException("not a positive number.");
+            if (val > 100)
+                throw InvalidFormatException("too large number.");
             // std::cout << line.substr(13) << "." << std::endl;
             // std::cout << "val: " << val << std::endl;
 
