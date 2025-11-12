@@ -18,19 +18,25 @@
 #include <deque>
 #include <algorithm>
 #include <ctime>
-#include <stdexcept>
 #include <sstream>
 
-class PmergeMe {
-public:
-    static void process(int ac, char **av);
+class PmergeMe
+{
+    public:
+        static void process(int ac, char **av);
 
-private:
-    static void mergeInsertSortVector(std::vector<int> &v);
-    static void mergeInsertSortDeque(std::deque<int> &d);
+        class BadInputException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
 
-    template <typename T>
-    static void mergeInsertSort(T &container);
+    private:
+        static void mergeInsertSortVector(std::vector<int> &v);
+        static void mergeInsertSortDeque(std::deque<int> &d);
+
+        template <typename T>
+        static void mergeInsertSort(T &container);
 };
 
 #endif

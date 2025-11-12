@@ -32,18 +32,18 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int> &d) { mergeInsertSort(d); }
 
 void PmergeMe::process(int ac, char **av) {
     if (ac < 2)
-        throw std::runtime_error("Error: no input");
+        throw BadInputException();
 
     std::vector<int> vec;
-    std::deque<int> deq;
+    std::deque<int> d;
 
     for (int i = 1; i < ac; ++i) {
         std::istringstream iss(av[i]);
         int n;
         if (!(iss >> n) || n < 0)
-            throw std::runtime_error("Error");
+            throw BadInputException();
         vec.push_back(n);
-        deq.push_back(n);
+        d.push_back(n);
     }
 
     std::cout << "Before: ";
@@ -56,7 +56,7 @@ void PmergeMe::process(int ac, char **av) {
     clock_t endVec = clock();
 
     clock_t startDeq = clock();
-    mergeInsertSortDeque(deq);
+    mergeInsertSortDeque(d);
     clock_t endDeq = clock();
 
     std::cout << "After: ";
@@ -68,5 +68,10 @@ void PmergeMe::process(int ac, char **av) {
     double timeDeq = double(endDeq - startDeq) / CLOCKS_PER_SEC * 1e6;
 
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << timeVec << " us" << std::endl;
-    std::cout << "Time to process a range of " << deq.size() << " elements with std::deque : " << timeDeq << " us" << std::endl;
+    std::cout << "Time to process a range of " << d.size() << " elements with std::deque : " << timeDeq << " us" << std::endl;
+}
+
+const char* PmergeMe::BadInputException::what() const throw()
+{
+    return "Error: bad input.";
 }
