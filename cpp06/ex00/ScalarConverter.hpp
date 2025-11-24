@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:45:18 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/09 14:27:16 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/11/24 15:11:04 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 #include <cfloat>
 #include <cmath>
 #include <limits>
+
+//static_cast is used for cases where you basically
+// want to reverse an implicit conversion, with a few restrictions and additions.
+// static_cast performs no runtime checks.
+// This should be used if you know that you refer to an object of a specific type,
+// and thus a check would be unnecessary.
 
 class ScalarConverter
 {

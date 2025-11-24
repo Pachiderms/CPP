@@ -36,9 +36,11 @@ int main()
     ptr->attk = 100;
 
     uintptr_t p = Serializer::serialize(ptr);
+    minion.attk = 50;
     Data* e = Serializer::deserialize(p);
 
     printInfos(e);
+    printInfos(ptr);
     printInfos(&minion);
     std::cout << "p value: " << p << std::endl;
 

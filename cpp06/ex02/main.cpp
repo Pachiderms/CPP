@@ -19,7 +19,7 @@ Base* generate()
 {
     srand(time(NULL));
     int x = rand() % 100;
-    std::cout << x << std::endl;
+    //std::cout << x << std::endl;
     if (x <= 33){
         std::cout << "Randaom A." << std::endl;
         return new A();
@@ -53,23 +53,30 @@ void identify(Base* p)
         std::cout << "WTF IS THIS ?\n";
 }
 
+// dynamic_cast returns a null pointer if the object referred 
+// to doesn't contain the type casted to as a base class
+// when you cast to a reference, a bad_cast exception is thrown
+// a static _cast doesn't because there is no type check.
 void identify(Base& p)
 {
     try{
-        dynamic_cast<A&>(p);
+        A& a = dynamic_cast<A&>(p);
+        (void)a;
         std::cout << "Identified as A." << std::endl;
     }
-    catch (...){}
+    catch (std::exception & e){std::cerr << e.what() << std::endl;}
     try{
-        dynamic_cast<B&>(p);
+        B& b = dynamic_cast<B&>(p);
+        (void)b;
         std::cout << "Identified as B." << std::endl;
     }
-    catch (...){}
+    catch (std::exception & e){std::cerr << e.what() << std::endl;}
     try{
-        dynamic_cast<C&>(p);
+        C& c = dynamic_cast<C&>(p);
+        (void)c;
         std::cout << "Identified as C." << std::endl;
     }
-    catch (...){}
+    catch (std::exception & e){std::cerr << e.what() << std::endl;}
 }
 
 int main()

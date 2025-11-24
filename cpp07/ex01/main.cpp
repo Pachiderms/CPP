@@ -3,9 +3,10 @@
 # include <strings.h>
 # include <cctype>
 
-void toUpper(char &e)
+template <typename T>
+void myFun(T &e)
 {
-    e = std::toupper(e);
+    std::cout << "My fun: " << e << std::endl;
 }
 
 int main ()
@@ -16,29 +17,22 @@ int main ()
 
 
     for (int i=0; i < 4; i++){
-        std::cout << charArray[i] << std::endl;
+        std::cout << charArray[i] << "|";
     }
-    ::iter(charArray, 4, toUpper);
-    for (int i=0; i < 4; i++){
-        std::cout << charArray[i] << std::endl;
-    }
+    std::cout << "\n";
+    ::iter(charArray, 4, myFun);
 
     for (int i=0; i < 4; i++){
-        std::cout << intArray[i] << std::endl;
+        std::cout << intArray[i] << "|";
     }
-    ::iter(charArray, 4, toUpper);
-    for (int i=0; i < 4; i++){
-        std::cout << intArray[i] << std::endl;
-    }
+    std::cout << "\n";
+    ::iter(intArray, 4, myFun);
 
-    // Not Working
-    // for (int i=0; i < 3; i++){ 
-    //     std::cout << strArray[i] << std::endl;
-    // }
-    // ::iter(strArray, 3, toUpper);
-    // for (int i=0; i < 3; i++){
-    //     std::cout << strArray[i] << std::endl;
-    // }
+    for (int i=0; i < 3; i++){ 
+        std::cout << strArray[i] << "|";
+    }
+    std::cout << "\n";
+    ::iter(strArray, 3, myFun);
 
     return 0;
 }

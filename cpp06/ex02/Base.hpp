@@ -15,6 +15,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <exception>
 
 class Base
 {
