@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:54:18 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/07 12:59:31 by tzizi            ###   ########.fr       */
+/*   Updated: 2025/11/24 18:13:29 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,6 @@ class Array
 			return (this->_size);
 		}
 
-        T GetElem(unsigned int i) const
-		{
-            if (i < 0 || i >= this->_size || !this->_array){
-				std::cout << "index: " << i << ": ";
-				throw OutOfBoundsException();
-			}
-			return (this->_array[i]);
-		}
-
 		Array &operator=(const Array &a){
 			if (this->_array)
 				delete [] this->_array;
@@ -60,7 +51,7 @@ class Array
 			return (*this);
 		}
 
-		T &operator[](unsigned int index ){
+		T &operator[](unsigned int index )const{
 			if (index >= this->_size || !this->_array){
 				std::cout << "index: " << index << ": ";
 				throw OutOfBoundsException();
@@ -80,7 +71,7 @@ class Array
 template <typename T>
 std::ostream& operator<<(std::ostream & o, const Array<T>& a){
     for (unsigned int i = 0; i < a.size(); i++){
-        o << a.GetElem(i) << " |";
+        o << a[i] << " |";
     }
     o << std::endl;
     return o;
