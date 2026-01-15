@@ -29,4 +29,3 @@ template <typename T>
 const T* Min(T &x, T &y){
     return x < y ? &x : &y;
 }
-
