@@ -4,7 +4,7 @@
 # include <cctype>
 
 template <typename T>
-void myFun(T &e)
+void const myFun(T const &e)
 {
     std::cout << e << "/";
 }
@@ -17,17 +17,16 @@ int main ()
     int intArray[] = { 1, 2, 3, 4, 5, 6};
     std::string strArray[] = {"str1", "str2", "str3"};
 
-
-    ::iter(charArray, (int)sizeof(charArray), myFun);
+    ::iter(charArray, (int)sizeof(charArray), myFun<char>);
     std::cout << "\n";
     ::iter(charArray, (int)sizeof(charArray), Toupper);
-    ::iter(charArray, (int)sizeof(charArray), myFun);
+    ::iter(charArray, (int)sizeof(charArray), myFun<char>);
     std::cout << "\n";
 
-    ::iter(intArray, (int)(sizeof(intArray)/sizeof(int)), myFun);
+    ::iter(intArray, (int)(sizeof(intArray)/sizeof(int)), myFun<int>);
     std::cout << "\n";
 
-    ::iter(strArray, (int)(sizeof(strArray)/sizeof(std::string)), myFun);
+    ::iter(strArray, (int)(sizeof(strArray)/sizeof(std::string)), myFun<std::string>);
     std::cout << "\n";
 
     return 0;
