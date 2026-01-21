@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:02:34 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/15 15:45:23 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/21 16:25:49 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int main()
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
-    //[...]
     mstack.push(0);
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
@@ -56,7 +55,6 @@ int main()
     lstack.push_back(3);
     lstack.push_back(5);
     lstack.push_back(737);
-    //[...]
     lstack.push_back(0);
     std::list<int>::iterator il = lstack.begin();
     std::list<int>::iterator ile = lstack.end();
