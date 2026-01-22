@@ -17,7 +17,8 @@ int PmergeMe::jacobsthal(int j){
         return 0;
     if (j == 1)
         return 1;
-    return (jacobsthal(j - 1) + 2 * jacobsthal(j - 2));
+    int index = jacobsthal(j - 1) + 2 * jacobsthal(j - 2);
+
 }
 
 template <typename T>
@@ -25,15 +26,53 @@ void PmergeMe::mergeInsertSort(T &container) {
     (void)container;
 }
 
-void PmergeMe::mergeInsertSortVector(std::vector<int> &v) { mergeInsertSort(v); }
+void PmergeMe::mergeInsertSortVector(std::vector<int> &v) { 
+    std::vector<int> winners, losers;
+
+    size_t len = v.size();
+    for (size_t i = 0; i < len; i += 2){
+        if (i + 1 == len ){
+            losers.push_back(v[i]);
+            break;
+        }
+        if (v[i] > v[i + 1]){
+            winners.push_back(v[i]);
+            losers.push_back(v[i + 1]);
+        }
+        else{
+            winners.push_back(v[i + 1]);
+            losers.push_back(v[i]);
+        }
+    }
+    std::vector<int> w = winners;
+    std::sort(winners.begin(), winners.end());
+    int real_i[winners.size()];
+    for (size_t i = 0; i < w.size(); i++){
+        std::cout << "w " << w[i] << std::endl;
+        std::cout << "winners " << winners[i] << std::endl;
+        std::vector<int>::iterator it = std::find(w.begin(), w.end(), winners[i]);
+        // std::cout << "pos: " << (it - w.begin());
+        real_i[i] = (it - w.begin());
+        std::cout << "pos: " << real_i[i] << std::endl;
+    }
+    for (size_t j = 0; j < winners.size();j++){
+        std::cout << winners[j] << "/";
+    }
+    std::cout << std::endl;
+    for (size_t j = 0; j < losers.size();j++){
+        std::cout << losers[j] << "/";
+    }
+    std::cout << std::endl;
+    winners.insert(winners.begin(), losers[real_i[0]]);
+}
 void PmergeMe::mergeInsertSortDeque(std::deque<int> &d) { mergeInsertSort(d); }
 
 void PmergeMe::process(int ac, char **av) {
     if (ac < 2)
         throw std::runtime_error("Bad input");
 
-    for (int i = 0; i < std::atoi(av[1]); i++) {
-        std::cout << "j[" << i << "] = " << jacobsthal(i) << std::endl;};
+    // for (int i = 0; i < std::atoi(av[1]); i++) {
+    //     std::cout << "j[" << i << "] = " << jacobsthal(i) << std::endl;};
     std::vector<int> vec;
     std::deque<int> d;
 
