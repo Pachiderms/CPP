@@ -22,16 +22,13 @@ class MutantStack : public std::stack<T>
     public:
         MutantStack() {}
         ~MutantStack(){}
-        MutantStack(const MutantStack & other) { *this = other; }
-        MutantStack& operator=(const MutantStack & other){
-            if (this != *other){
-                std::stack<T>::operator=(other);
-            }
-            return *this;
-        }
+        MutantStack(const MutantStack & other);
+        MutantStack& operator=(const MutantStack & other);
 
         typedef typename std::stack<T>::container_type::iterator iterator;
 
-        iterator begin() { return this->c.begin(); }
-        iterator end() { return this->c.end(); }
+        iterator begin();
+        iterator end();
 };
+
+#include "MutantStack.tpp"

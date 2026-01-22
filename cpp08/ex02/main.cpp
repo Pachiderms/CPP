@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:02:34 by tzizi             #+#    #+#             */
-/*   Updated: 2026/01/21 16:25:49 by tzizi            ###   ########.fr       */
+/*   Updated: 2026/01/22 12:46:09 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,21 @@ int main()
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
-    std::cout << mstack.top() << std::endl;
+    std::cout << "last elem: " << mstack.top() << std::endl;//17 -> 5|17
     mstack.pop();
-    std::cout << mstack.size() << std::endl;
+    std::cout << "size: " << mstack.size() << std::endl;//1 -> 5|
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
-    mstack.push(0);
+    mstack.push(0);// 5|3|5|737|0|
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
     ++it;
     --it;
     while (it != ite)
     {
-    std::cout << *it << std::endl;
-    ++it;
+        std::cout << *it << std::endl;
+        ++it;
     }
     std::stack<int> s(mstack);
 
@@ -49,9 +49,9 @@ int main()
     std::list<int> lstack;
     lstack.push_back(5);
     lstack.push_back(17);
-    std::cout << lstack.back() << std::endl;//back car stack::top appartient a dequeu donc first in last out!
+    std::cout << "last elem: " << lstack.back() << std::endl;
     lstack.pop_back();
-    std::cout << lstack.size() << std::endl;
+    std::cout << "size: " << lstack.size() << std::endl;
     lstack.push_back(3);
     lstack.push_back(5);
     lstack.push_back(737);
@@ -62,8 +62,8 @@ int main()
     --il;
     while (il != ile)
     {
-    std::cout << *il << std::endl;
-    ++il;
+        std::cout << *il << std::endl;
+        ++il;
     }
     
     return 0;
