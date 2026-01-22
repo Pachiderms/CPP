@@ -19,24 +19,20 @@
 #include <algorithm>
 #include <ctime>
 #include <sstream>
+#include <stdexcept>
 
 class PmergeMe
 {
     public:
         static void process(int ac, char **av);
-
-        class BadInputException : public std::exception
-        {
-            public:
-                const char* what() const throw();
-        };
-
     private:
         static void mergeInsertSortVector(std::vector<int> &v);
         static void mergeInsertSortDeque(std::deque<int> &d);
 
         template <typename T>
         static void mergeInsertSort(T &container);
+
+        static int jacobsthal(int j);
 };
 
 #endif

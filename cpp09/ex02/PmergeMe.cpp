@@ -12,19 +12,17 @@
 
 #include "PmergeMe.hpp"
 
+int PmergeMe::jacobsthal(int j){
+    if (j == 0)
+        return 0;
+    if (j == 1)
+        return 1;
+    return (jacobsthal(j - 1) + 2 * jacobsthal(j - 2));
+}
+
 template <typename T>
 void PmergeMe::mergeInsertSort(T &container) {
-    if (container.size() <= 1)
-        return;
-
-    typename T::iterator mid = container.begin() + container.size() / 2;
-    T left(container.begin(), mid);
-    T right(mid, container.end());
-
-    mergeInsertSort(left);
-    mergeInsertSort(right);
-
-    std::merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
+    (void)container;
 }
 
 void PmergeMe::mergeInsertSortVector(std::vector<int> &v) { mergeInsertSort(v); }
@@ -32,8 +30,10 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int> &d) { mergeInsertSort(d); }
 
 void PmergeMe::process(int ac, char **av) {
     if (ac < 2)
-        throw BadInputException();
+        throw std::runtime_error("Bad input");
 
+    for (int i = 0; i < std::atoi(av[1]); i++) {
+        std::cout << "j[" << i << "] = " << jacobsthal(i) << std::endl;};
     std::vector<int> vec;
     std::deque<int> d;
 
@@ -41,7 +41,7 @@ void PmergeMe::process(int ac, char **av) {
         std::istringstream iss(av[i]);
         int n;
         if (!(iss >> n) || n < 0)
-            throw BadInputException();
+            throw std::runtime_error("Bad input");
         vec.push_back(n);
         d.push_back(n);
     }
@@ -69,9 +69,4 @@ void PmergeMe::process(int ac, char **av) {
 
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << timeVec << " us" << std::endl;
     std::cout << "Time to process a range of " << d.size() << " elements with std::deque : " << timeDeq << " us" << std::endl;
-}
-
-const char* PmergeMe::BadInputException::what() const throw()
-{
-    return "Error: bad input.";
 }
