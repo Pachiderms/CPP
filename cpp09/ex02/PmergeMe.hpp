@@ -32,7 +32,7 @@ class PmergeMe
         template <typename T>
         static void mergeInsertSort(T &container);
 
-        static int jacobsthal(int j);
+        //static int jacobsthal(int j);
 };
 
 #endif

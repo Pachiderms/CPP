@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 14:27:31 by tzizi             #+#    #+#             */
-/*   Updated: 2026/01/22 12:24:27 by tzizi            ###   ########.fr       */
+/*   Updated: 2026/01/22 16:35:13 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void Span::addNumber(int n){
 }
 
 int Span::shortestSpan()const{
-    if (_v.size() < 2 || _v.empty())
+    if (_v.size() < 2)
         throw std::runtime_error("span cannot perform operations.");
     std::vector<int> sorted = _v;
     std::sort(sorted.begin(), sorted.end());
@@ -49,7 +49,7 @@ int Span::shortestSpan()const{
 }
 
 int Span::longestSpan()const{
-        if (_v.size() < 2 || _v.empty())
+    if (_v.size() < 2)
         throw std::runtime_error("span cannot perform operations.");
 
     int min = *std::min_element(_v.begin(), _v.end());

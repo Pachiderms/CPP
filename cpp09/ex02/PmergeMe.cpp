@@ -12,13 +12,34 @@
 
 #include "PmergeMe.hpp"
 
-int PmergeMe::jacobsthal(int j){
+int jacobsthal(int j){
     if (j == 0)
         return 0;
     if (j == 1)
         return 1;
     int index = jacobsthal(j - 1) + 2 * jacobsthal(j - 2);
+    return index;
+}
 
+template <typename T>
+typename T::iterator easyfind(T v, int val)
+{
+    typename T::iterator it = std::find(v.begin(), v.end(), val);
+    if (it == v.end())
+        throw std::runtime_error("Value not found.");
+    return it;
+}
+
+template<typename T>
+void DoJacob(T &v, T old_vec, T l, int j){
+    if (l.empty())
+        return;
+    std::cout << jacobsthal(j - 1) << " end.\n";
+    for (int i = j; i > jacobsthal(j - 1); i--){
+        std::cout << v[i - 1] << std::endl;
+        
+    }
+    DoJacob(v, old_vec, l, j + 1);
 }
 
 template <typename T>
@@ -46,24 +67,15 @@ void PmergeMe::mergeInsertSortVector(std::vector<int> &v) {
     }
     std::vector<int> w = winners;
     std::sort(winners.begin(), winners.end());
-    int real_i[winners.size()];
-    for (size_t i = 0; i < w.size(); i++){
-        std::cout << "w " << w[i] << std::endl;
-        std::cout << "winners " << winners[i] << std::endl;
-        std::vector<int>::iterator it = std::find(w.begin(), w.end(), winners[i]);
-        // std::cout << "pos: " << (it - w.begin());
-        real_i[i] = (it - w.begin());
-        std::cout << "pos: " << real_i[i] << std::endl;
+    for (int i = 0; i < (int)winners.size(); i++){
+        std::cout << winners[i] << "/";
     }
-    for (size_t j = 0; j < winners.size();j++){
-        std::cout << winners[j] << "/";
+    std::cout <<"\n";
+    DoJacob(winners, w, losers, 3);
+    for (int i = 0; i < (int)winners.size(); i++){
+        std::cout << winners[i] << "/";
     }
-    std::cout << std::endl;
-    for (size_t j = 0; j < losers.size();j++){
-        std::cout << losers[j] << "/";
-    }
-    std::cout << std::endl;
-    winners.insert(winners.begin(), losers[real_i[0]]);
+    std::cout <<"\n";
 }
 void PmergeMe::mergeInsertSortDeque(std::deque<int> &d) { mergeInsertSort(d); }
 
