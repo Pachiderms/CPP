@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 14:17:55 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/15 14:52:27 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/22 12:19:49 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <stdexcept>
 
 class Span
 {
@@ -32,22 +33,15 @@ class Span
 
     public:
         void addNumber(int n);
+
         template <typename T>
         void addRange(T first, T last)
         {
             if (_v.size() + std::distance(first, last) > _N)
-                throw OverflowException();
+                throw std::runtime_error("container is full.");
             _v.insert(_v.end(), first, last);
         }
     
         int shortestSpan()const;
         int longestSpan()const;
-
-        class OverflowException : public std::exception
-        {
-            public:
-                virtual const char* what() const throw(){
-                    return ("Container can't add value(s) because of it's capacity!");
-                }
-        };
 };

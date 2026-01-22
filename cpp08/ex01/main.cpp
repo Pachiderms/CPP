@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:30:38 by tzizi             #+#    #+#             */
-/*   Updated: 2025/10/15 15:13:13 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/22 12:30:39 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,14 @@ int main()
         std::cerr << e.what() << std::endl;
     }
 
+    try{
+        Span empty(1);
+        std::cout << empty.shortestSpan()<< std::endl;
+    }
+    catch(std::exception & e){
+        std::cerr << e.what() << std::endl;
+    }
+
     std::cout << "---------------------------------------------------------------------------------\n";
     std::cout << "--------------------------------Big Span Fail------------------------------------\n";
     std::cout << "---------------------------------------------------------------------------------\n";
@@ -76,10 +84,13 @@ int main()
         Span big(1000);
         std::vector<int> v;
         for (int i = 0; i < 1000; ++i)
-            v.push_back(rand() % 1000);
+            v.push_back(i);
         big.addRange(v.begin(), v.end());
         std::cout << big.shortestSpan()<< std::endl;
         std::cout << big.longestSpan()<< std::endl;
+        std::sort(v.begin(), v.end());
+        std::cout << v[0] << "|" << v[1] << std::endl;
+        std::cout << v[999] << std::endl;
     }
     catch(std::exception & e){
         std::cerr << e.what() << std::endl;
