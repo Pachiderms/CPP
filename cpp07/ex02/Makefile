@@ -1,15 +1,15 @@
 NAME = array
 
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -g3 -std=c++98
 
-SRC = main.cpp
-OBJS = ${SRC:.cpp=.o}
+SRCS = main.cpp
+OBJS = ${SRCS:.cpp=.o}
 
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	${CXX} ${CPPFLAGS} ${OBJS}	-o ${NAME}
+	${CXX} ${CPPFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 	rm -f *.o

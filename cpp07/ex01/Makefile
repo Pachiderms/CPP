@@ -1,7 +1,7 @@
 NAME = iter
 
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC = main.cpp
 OBJS = ${SRC:.cpp=.o}

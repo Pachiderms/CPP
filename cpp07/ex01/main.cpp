@@ -4,7 +4,7 @@
 # include <cctype>
 
 template <typename T>
-void const myFun(T const &e)
+void myFun(T const &e)
 {
     std::cout << e << "/";
 }

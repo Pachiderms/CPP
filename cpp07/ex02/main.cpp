@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 #include "Array.hpp"
 
 #define MAX_VAL 750
@@ -116,7 +117,18 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
+    Array<const int> arr;
+    int *a = new int();
+    std::cout << *a <<std::endl;
+    char *c = new char();
+    std::cout << *c <<std::endl;
+    std::string *s = new std::string();
+    std::cout << *s <<std::endl;
+    std::cout << arr << std::endl;
     //std::cout << numbers;
     delete [] mirror;
+    delete a;
+    delete c;
+    delete s;
     return 0;
 }
