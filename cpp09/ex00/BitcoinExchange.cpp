@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:14:54 by tzizi             #+#    #+#             */
-/*   Updated: 2025/11/12 15:53:05 by tzizi            ###   ########.fr       */
+/*   Updated: 2026/01/30 10:45:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,14 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
             {
                 it = _data.lower_bound(date);
                 it--;
-                if (val * it->second > std::numeric_limits<int>::max())
+                if (val * it->second > std::numeric_limits<int>::max() || val * it->second > 1000)
                     throw InvalidFormatException("too large number.");
                 // std::cout << "lower bound: " << it->first << std::endl;
                 // std::cout << it->second << std::endl;
                 std::cout << date << " => " << val << " = "
                     <<  val * it->second << std::endl;
             }else{
-                if (val * it->second > std::numeric_limits<int>::max())
+                if (val * it->second > std::numeric_limits<int>::max() || val * it->second > 1000)
                     throw InvalidFormatException("too large number.");
                 // std::cout << "found: " << it->first << std::endl;
                 // std::cout << it->second << std::endl;

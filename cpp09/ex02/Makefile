@@ -13,7 +13,7 @@
 NAME = PmergeMe
 
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -g3 -std=c++98
 
 SRC = main.cpp PmergeMe.cpp \
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:50:17 by tzizi             #+#    #+#             */
-/*   Updated: 2025/11/12 16:53:06 by tzizi            ###   ########.fr       */
+/*   Updated: 2026/01/29 12:19:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void RPN::process(std::stack<char> &s)
             break;
         case '/':
             if (b == 0)
-                throw BadInputException();
+                throw std::runtime_error("Bad Input");
             s.push((a / b) + '0');
             break;
         case '*':
@@ -64,7 +64,7 @@ void RPN::calculate(const std::string& op)
         else if (token.size() != 1
             || ((std::string("+-/*").find(token[0], 0) != std::string::npos)
             && token.size() != 1) || isdigit(token[0] == 0)){
-            throw BadInputException();
+            throw std::runtime_error("Bad Input");
         }
         else{
             _s.push(token[0]);
@@ -72,11 +72,7 @@ void RPN::calculate(const std::string& op)
         RPN::process(_s);
     }
     if (_s.size() != 1)
-        throw BadInputException();
+        throw std::runtime_error("Bad Input");
     std::cout << _s.top() - '0' << std::endl;
 }
 
-const char* RPN::BadInputException::what() const throw()
-{
-    return "Error: bad input.";
-}

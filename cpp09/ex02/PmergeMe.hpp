@@ -10,29 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PMERGEME_HPP
-#define PMERGEME_HPP
+#pragma once
 
-#include <iostream>
+#include <string>
+#include <exception>
 #include <vector>
 #include <deque>
-#include <algorithm>
-#include <ctime>
-#include <sstream>
-#include <stdexcept>
+#include <cstddef>
+
+struct Pair
+{
+    int small;
+    int big;
+
+    bool operator==(const Pair& other) const {
+        return big == other.big;
+    }
+};
 
 class PmergeMe
 {
-    public:
-        static void process(int ac, char **av);
-    private:
-        static void mergeInsertSortVector(std::vector<int> &v);
-        static void mergeInsertSortDeque(std::deque<int> &d);
+public :
+    PmergeMe(char **argv);
+    PmergeMe(PmergeMe const &copy);
+    PmergeMe &operator=(PmergeMe const &src);
+    ~PmergeMe(){};
 
-        template <typename T>
-        static void mergeInsertSort(T &container);
+    void process();
 
-        //static int jacobsthal(int j);
+private :
+    std::vector<int> m_v;
+    std::deque<int> m_d;
+
+    PmergeMe(){};
+
+    std::vector<size_t> buildJacobOrder(size_t m);
+    void sortVector();
+    void sortDeque();
 };
-
-#endif

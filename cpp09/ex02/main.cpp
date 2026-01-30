@@ -10,12 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "PmergeMe.hpp"
 
 int main(int ac, char **av)
 {
+    if (ac < 2){
+        std::cerr << "Not Enough Args" << std::endl;
+        return 1;
+    }
     try {
-        PmergeMe::process(ac, av);
+        PmergeMe p(av);
+        p.process();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
