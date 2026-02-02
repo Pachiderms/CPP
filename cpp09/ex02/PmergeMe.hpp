@@ -18,33 +18,23 @@
 #include <deque>
 #include <cstddef>
 
-struct Pair
-{
-    int small;
-    int big;
-
-    bool operator==(const Pair& other) const {
-        return big == other.big;
-    }
-};
-
 class PmergeMe
 {
-public :
-    PmergeMe(char **argv);
-    PmergeMe(PmergeMe const &copy);
-    PmergeMe &operator=(PmergeMe const &src);
-    ~PmergeMe(){};
+    public :
+        PmergeMe(char **argv);
+        PmergeMe(PmergeMe const &copy);
+        PmergeMe &operator=(PmergeMe const &src);
+        ~PmergeMe(){};
 
-    void process();
+        void process();
 
-private :
-    std::vector<int> m_v;
-    std::deque<int> m_d;
+    private :
+        std::vector<int> m_v;
+        std::deque<int> m_d;
 
-    PmergeMe(){};
+        PmergeMe(){};
 
-    std::vector<size_t> buildJacobOrder(size_t m);
-    void sortVector();
-    void sortDeque();
+        std::vector<size_t> buildJacobOrder(size_t m);
+        void sortVector();
+        void sortDeque();
 };

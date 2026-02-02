@@ -99,7 +99,7 @@ std::vector<size_t> PmergeMe::buildJacobOrder(size_t m)
 //     }
 // }
 
-// std::vector<size_t> uildJacobOrder(size_t m)
+// std::vector<size_t> buildJacobOrder(size_t m)
 // {
 //     std::vector<size_t> _order;
 //     if (m <= 1){
@@ -126,7 +126,7 @@ void PmergeMe::sortVector()
     if (m_v.size() <= 1)
         return;
 
-    std::vector<Pair> pairs;
+    std::vector<std::pair<int, int> > pairs;
     pairs.reserve(m_v.size() / 2);
 
     size_t i = 0;
@@ -136,7 +136,7 @@ void PmergeMe::sortVector()
         int b = m_v[i + 1];
         if (a > b)
             std::swap(a, b);
-        Pair p; p.small = a; p.big = b;
+        std::pair<int, int> p(a, b);
         pairs.push_back(p);
     }
     bool hasLeftover = (i < m_v.size());
@@ -146,20 +146,20 @@ void PmergeMe::sortVector()
 
     std::vector<int> big;
     big.reserve(pairs.size());
-    for (size_t k = 0; k < pairs.size(); k++) {big.push_back(pairs[k].big);}
+    for (size_t k = 0; k < pairs.size(); k++) {big.push_back(pairs[k].second);}
 
     std::sort(big.begin(), big.end());
     m_v = big;
     std::sort(m_v.begin(), m_v.end());
 
-    std::vector<Pair> sortedPairs;
+    std::vector<std::pair<int, int> > sortedPairs;
     sortedPairs.reserve(pairs.size());
     for (size_t k = 0; k < m_v.size(); k++)
     {
         int targetBig = m_v[k];
         for (size_t p = 0; p < pairs.size(); p++)
         {
-            if (pairs[p].big == targetBig)
+            if (pairs[p].second == targetBig)
             {
                 sortedPairs.push_back(pairs[p]);
                 pairs.erase(pairs.begin() + p);
@@ -169,14 +169,14 @@ void PmergeMe::sortVector()
     }
 
     std::vector<int> mainChain = m_v;
-    int b1 = sortedPairs[0].small;
+    int b1 = sortedPairs[0].first;
     mainChain.insert(mainChain.begin(), b1);
 
     std::vector<size_t> order = buildJacobOrder(sortedPairs.size());
     for (size_t t = 0; t < order.size(); t++)
     {
         size_t idx = order[t];
-        int value = sortedPairs[idx - 1].small;
+        int value = sortedPairs[idx - 1].first;
         std::vector<int>::iterator pos =
             std::lower_bound(mainChain.begin(), mainChain.end(), value);
         mainChain.insert(pos, value);
@@ -195,7 +195,7 @@ void PmergeMe::sortDeque()
     if (m_d.size() <= 1)
         return;
 
-    std::vector<Pair> pairs;
+    std::vector<std::pair<int, int> > pairs;
     pairs.reserve(m_d.size() / 2);
 
     size_t i = 0;
@@ -205,7 +205,7 @@ void PmergeMe::sortDeque()
         int b = m_d[i + 1];
         if (a > b)
             std::swap(a, b);
-        Pair p; p.small = a; p.big = b;
+        std::pair<int, int> p(a, b);
         pairs.push_back(p);
     }
     bool hasLeftover = (i < m_d.size());
@@ -214,19 +214,19 @@ void PmergeMe::sortDeque()
         leftover = m_d[i];
 
     std::deque<int> big;
-    for (size_t k = 0; k < pairs.size(); k++) {big.push_back(pairs[k].big);}
+    for (size_t k = 0; k < pairs.size(); k++) {big.push_back(pairs[k].second);}
        
     std::sort(big.begin(), big.end());
     m_d = big;
 
-    std::vector<Pair> sortedPairs;
+    std::vector<std::pair<int, int> > sortedPairs;
     sortedPairs.reserve(pairs.size());
     for (size_t k = 0; k < m_d.size(); k++)
     {
         int targetBig = m_d[k];
         for (size_t p = 0; p < pairs.size(); p++)
         {
-            if (pairs[p].big == targetBig)
+            if (pairs[p].second == targetBig)
             {
                 sortedPairs.push_back(pairs[p]);
                 pairs.erase(pairs.begin() + p);
@@ -236,14 +236,14 @@ void PmergeMe::sortDeque()
     }
 
     std::vector<int> mainChain(m_d.begin(), m_d.end());
-    int b1 = sortedPairs[0].small;
+    int b1 = sortedPairs[0].first;
     mainChain.insert(mainChain.begin(), b1);
 
     std::vector<size_t> order = buildJacobOrder(sortedPairs.size());
     for (size_t t = 0; t < order.size(); t++)
     {
         size_t idx = order[t];
-        int value = sortedPairs[idx - 1].small;
+        int value = sortedPairs[idx - 1].first;
 
         std::vector<int>::iterator pos =
             std::lower_bound(mainChain.begin(), mainChain.end(), value);
