@@ -16,50 +16,53 @@ RPN::RPN(const RPN& other) { (void)other; }
 
 RPN& RPN::operator=(const RPN& other){ (void)other; return *this; }
 
-void RPN::process(std::stack<char> &s)
+void RPN::process(std::stack<int> &s)
 {
     if (s.size() < 3)
         return;
 
-    if (std::string("+-/*").find(s.top(), 0) == std::string::npos)
+    char sign = s.top() + '0';
+    if (sign != '-' && sign != '+' && sign != '/' && sign != '*')
         return;
-
-    char sign = s.top();
     s.pop();
-    int b = s.top() - '0';
+    int b = s.top();
     s.pop();
-    int  a = s.top() - '0';
+    int  a = s.top();
     s.pop();
 
+    //std::cout << "\nsign=" << sign << ", a=" << a << ", b=" << b << std::endl;
     switch (sign)
     {
         case '+':
-            s.push((a + b) + '0');
+            s.push((a + b));
             break;
         case '-':
-            s.push((a - b) + '0');
+            s.push((a - b));
             break;
         case '/':
             if (b == 0)
                 throw std::runtime_error("Bad Input");
-            s.push((a / b) + '0');
+            s.push((a / b));
             break;
         case '*':
-            s.push((a * b) + '0');
+            s.push((a * b));
             break;
         default:
             break;
     }
+    //std::cout << "top: " << s.top() << std::endl;
+
 }
 
 void RPN::calculate(const std::string& op)
 {
     std::stringstream ss(op);
     std::string token;
-    std::stack<char> _s;
+    std::cout << "\n";
+    std::stack<int> _s;
     while (ss >> token){
         if (token.size() == 2 && token[0] == '-' && isdigit(token[1])){
-            _s.push(((token[1] - '0') * -1) + '0');
+            _s.push(((token[1] - '0') * -1));
         }
         else if (token.size() != 1
             || ((std::string("+-/*").find(token[0], 0) != std::string::npos)
@@ -67,12 +70,13 @@ void RPN::calculate(const std::string& op)
             throw std::runtime_error("Bad Input");
         }
         else{
-            _s.push(token[0]);
+            _s.push(token[0] - '0');
         }
+        //std::cout << _s.top() << "/";
         RPN::process(_s);
     }
     if (_s.size() != 1)
         throw std::runtime_error("Bad Input");
-    std::cout << _s.top() - '0' << std::endl;
+    std::cout << _s.top() << std::endl;
 }
 

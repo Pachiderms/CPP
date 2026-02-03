@@ -52,4 +52,11 @@ test: all
 	@echo "\ntest 9 (division by 0): "
 	./RPN "1 2- * 0 / 2 * 2 4 5 6 - +"
 
-.PHONY: all re clean fclean
+old_fails: all 
+	@echo "Old Fails:\n"
+	./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+	@echo "Old Fails:\n"
+	./RPN "9 8 * 4 * 4 / 2 + 9 - 8 - 8 - 1 - 6 -"
+	@echo "Old Fails:\n"
+	./RPN "1 2 * 2 / 2 + 5 * 6 - 1 3 * - 4 5 * * 8 /"
+.PHONY: all re test old_fails clean fclean

@@ -148,7 +148,7 @@ void PmergeMe::sortVector()
 
     std::sort(big.begin(), big.end());
     m_v = big;
-    std::sort(m_v.begin(), m_v.end());
+    sortVector();
 
     std::vector<std::pair<int, int> > sortedPairs;
     sortedPairs.reserve(pairs.size());
@@ -214,7 +214,7 @@ void PmergeMe::sortDeque()
     std::deque<int> big;
     for (size_t k = 0; k < pairs.size(); k++) {big.push_back(pairs[k].second);}
        
-    std::sort(big.begin(), big.end());
+    sortDeque();
     m_d = big;
 
     std::vector<std::pair<int, int> > sortedPairs;

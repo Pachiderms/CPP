@@ -27,5 +27,5 @@ class RPN
     
     public:
         static void calculate(const std::string &op);
-        static void process(std::stack<char> &s);
+        static void process(std::stack<int> &s);
 };
