@@ -85,40 +85,6 @@ std::vector<size_t> PmergeMe::buildJacobOrder(size_t m)
     return order;
 }
 
-// int getJacob(int i){
-//     if (i <= 0){
-//         return 0;
-//     }
-//     else if (i == 1){
-//         return 1;
-//     }
-//     else{
-//         return (getJacob(i - 1) + 2 * getJacob(i - 2));
-//     }
-// }
-
-// std::vector<size_t> buildJacobOrder(size_t m)
-// {
-//     std::vector<size_t> _order;
-//     if (m <= 1){
-//         return _order;
-//     }
-//     size_t prev = 1;
-//     for (size_t i = 3; i <= m; i++){
-//         int j = getJacob(i);
-//         _order.push_back(j);
-//         for (size_t k = j - 1; k > prev; k--){
-//             _order.push_back(k);
-//         }
-//         prev = j;
-//     }
-
-//     for (size_t l = m; l > prev; l--)
-//         _order.push_back(l);
-
-//     return _order;
-// }
-
 void PmergeMe::sortVector()
 {
     if (m_v.size() <= 1)
