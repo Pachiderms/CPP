@@ -6,7 +6,7 @@
 #    By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 10:40:43 by tzizi             #+#    #+#              #
-#    Updated: 2026/02/04 10:40:44 by tzizi            ###   ########.fr        #
+#    Updated: 2026/02/04 11:52:27 by tzizi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,6 @@ test: all
 	@echo "\ntest 3: "
 	./PmergeMe 3 4
 	@echo "\ntest 4: "
-	./PmergeMe "-1" "2"
+	./PmergeMe -1 2
 
 .PHONY: all re clean fclean

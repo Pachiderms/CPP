@@ -180,8 +180,8 @@ void PmergeMe::sortDeque()
     std::deque<int> big;
     for (size_t k = 0; k < pairs.size(); k++) {big.push_back(pairs[k].second);}
        
-    sortDeque();
     m_d = big;
+    sortDeque();
 
     std::vector<std::pair<int, int> > sortedPairs;
     sortedPairs.reserve(pairs.size());
