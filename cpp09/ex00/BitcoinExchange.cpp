@@ -64,11 +64,20 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
                 throw InvalidFormatException("bad input => " + line);
             std::string date = line.substr(0, 10);
             // std::cout << "date: " << date << std::endl;
-            float y=atof(date.substr(0, 4).c_str())
-                , m=atof(date.substr(5, 2).c_str())
-                , d=atof(date.substr(8, 2).c_str());
+            int y=atoi(date.substr(0, 4).c_str())
+                , m=atoi(date.substr(5, 2).c_str())
+                , d=atoi(date.substr(8, 2).c_str());
             if ((y <= 2009 && d < 02) || y < 2009 || m < 0 || d < 0 || m > 12 || d > 31){
                 throw InvalidFormatException("bad input => " + date);
+            }
+            if (m == 2){
+                int b = (y % 2000);
+                if (b % 4 == 0 && d > 29){
+                    throw InvalidFormatException("bad input => " + date);
+                }
+                else if (b % 4 != 0 && d > 28){
+                    throw InvalidFormatException("bad input => " + date);
+                }
             }
             float val = atof(line.substr(13).c_str());
             if (val < 0)
