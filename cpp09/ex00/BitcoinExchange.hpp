@@ -30,6 +30,8 @@ class BitcoinExchange
         bool isValidDate(const std::string &date) const;
         bool isValidValue(const std::string &value) const;
 
+        int isBisextile(int y);
+
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &other);

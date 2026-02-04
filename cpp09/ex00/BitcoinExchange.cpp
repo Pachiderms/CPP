@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 10:39:28 by tzizi             #+#    #+#             */
-/*   Updated: 2026/02/04 10:39:31 by tzizi            ###   ########.fr       */
+/*   Updated: 2026/02/04 16:29:00 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
     return *this;
 }
 
+int BitcoinExchange::isBisextile(int y){
+    return ((y % 400 == 0) && y % 100 == 0) || (((y % 100) != 0) && y % 4 == 0);
+}
+
 void BitcoinExchange::loadDatabase(const std::string &filename)
 {
     std::ifstream file;
@@ -71,11 +75,10 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
                 throw InvalidFormatException("bad input => " + date);
             }
             if (m == 2){
-                int b = (y % 2000);
-                if (b % 4 == 0 && d > 29){
+                if (isBisextile(y) && d > 29){
                     throw InvalidFormatException("bad input => " + date);
                 }
-                else if (b % 4 != 0 && d > 28){
+                else if (!isBisextile(y) && d > 28){
                     throw InvalidFormatException("bad input => " + date);
                 }
             }

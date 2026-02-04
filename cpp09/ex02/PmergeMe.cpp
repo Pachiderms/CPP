@@ -112,7 +112,6 @@ void PmergeMe::sortVector()
     big.reserve(pairs.size());
     for (size_t k = 0; k < pairs.size(); k++) {big.push_back(pairs[k].second);}
 
-    std::sort(big.begin(), big.end());
     m_v = big;
     sortVector();
 
