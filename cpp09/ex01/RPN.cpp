@@ -6,7 +6,7 @@
 /*   By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 10:40:20 by tzizi             #+#    #+#             */
-/*   Updated: 2026/02/04 10:40:21 by tzizi            ###   ########.fr       */
+/*   Updated: 2026/02/04 11:40:00 by tzizi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void RPN::process(std::stack<int> &s)
             break;
         case '/':
             if (b == 0)
-                throw std::runtime_error("Bad Input");
+                throw std::runtime_error("Bad Input Division by zero.");
             s.push((a / b));
             break;
         case '*':

@@ -6,7 +6,7 @@
 #    By: tzizi <tzizi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 10:40:05 by tzizi             #+#    #+#              #
-#    Updated: 2026/02/04 10:40:06 by tzizi            ###   ########.fr        #
+#    Updated: 2026/02/04 11:39:17 by tzizi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ test: all
 	@echo "\ntest 8 (invalid sign position): "
 	./RPN "1 2- * 2 / 2 * 2 4 5 6 - +"
 	@echo "\ntest 9 (division by 0): "
-	./RPN "1 2- * 0 / 2 * 2 4 5 6 - +"
+	./RPN "1 2 * 0 / 2 * 2 4 5 6 - +"
 
 old_fails: all 
 	@echo "Old Fails:\n"
